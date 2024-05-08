@@ -1,13 +1,19 @@
-import React from 'react';
-import { TextInput,View , Text, StyleSheet, Image} from 'react-native';
+import React, {useState} from 'react';
+import { TextInput,View , Text, StyleSheet, Image, Pressable} from 'react-native';
 
 type Props={
     placeholder:string,
     title:string,
-    path:any
+    path:any,
+    type:string
 };
 function UserInput(props: Props){
-    const {placeholder,title,path} = props;
+    const {placeholder,title,path,type} = props;
+    const [isPasswordVisible,setIsPasswordVisible] = useState(false);
+    // toggle password visibility
+    const togglePasswordVisibility = ()=>{
+        setIsPasswordVisible(prevState => !prevState);
+    };
     return(
         <View style={styles.inputContainer}>
             <View style={styles.imgContainer}>
@@ -15,8 +21,19 @@ function UserInput(props: Props){
             </View>
             <View style={styles.textInput}>
                 <Text style={styles.text}>{title}</Text>
-                <TextInput style={styles.placeholder} placeholder={placeholder} placeholderTextColor="#fff"/>
+                <View style={styles.inputIconContainer}>
+                    <TextInput style={styles.placeholder} placeholder={placeholder} placeholderTextColor="#fff" secureTextEntry={type === 'password' && !isPasswordVisible}/>
+                    {type === 'password' && (
+                        <Pressable onPress={togglePasswordVisibility}>
+                            <Image
+                                source={isPasswordVisible ? require('../../Assets/images/eye.png') : require('../../Assets/images/eye_close.png')}
+                                style={styles.eyeIcon}
+                            />
+                        </Pressable>
+                    )}
+                </View>
             </View>
+
         </View>
     );
 
@@ -31,8 +48,7 @@ const styles = StyleSheet.create({
         borderColor: '#fff',
         marginHorizontal:10,
         borderWidth:1,
-        // paddingBottom:1,
-        // paddingTop:2,
+        marginBottom:20,
     },
     imgContainer:{
         justifyContent: 'center',
@@ -53,6 +69,16 @@ const styles = StyleSheet.create({
     placeholder:{
         color:'#fff',
         padding:0,
+    },
+    inputIconContainer:{
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    eyeIcon:{
+        width: 20,
+        height: 20,
+        tintColor: '#fff',
+        marginLeft: 50,
     },
 });
 export default UserInput;

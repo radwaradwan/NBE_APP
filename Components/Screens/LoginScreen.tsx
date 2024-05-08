@@ -1,14 +1,18 @@
 import React from 'react';
 import { ImageBackground,StyleSheet} from 'react-native';
 import SubmitButton from '../Atoms/SubmitButton';
-import UserInput from '../Atoms/UserInput';
-
+import LoginInputs from '../Molecules/LoginInputs';
+import LoginNav from '../Molecules/LoginNav';
+import HeaderLoginText from '../Atoms/HeaderLoginText';
+import RememberMeRow from '../Molecules/RememberMeRow';
 function LoginScreen() {
-    const atImg = require('../../Assets/images/user.png');
     const backgroundImage = require('../../Assets/images/main.png');
     return (
         <ImageBackground source={backgroundImage} resizeMode="cover" style={styles.background}>
-            <UserInput placeholder="username" title="Username" path={atImg}/>
+            <LoginNav/>
+            <HeaderLoginText/>
+            <LoginInputs/>
+            <RememberMeRow/>
             <SubmitButton title="Log In"/>
         </ImageBackground>
     );
