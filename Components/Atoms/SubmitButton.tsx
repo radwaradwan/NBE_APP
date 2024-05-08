@@ -22,9 +22,10 @@ function SubmitButton(props: Props) {
 
 const styles = StyleSheet.create({
     buttonOuterContaier:{
-        margin: 16,
+        marginVertical: 16,
         borderRadius: 12,
         overflow:'hidden',
+        width:270,
     },
     buttonInnerContainer:{
         backgroundColor: '#007236',

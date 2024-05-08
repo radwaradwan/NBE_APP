@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     checkBoxContainer:{
         flexDirection:'row',
         justifyContent:'space-between',
-        marginStart:14,
-        marginEnd:12,
+        marginStart:22,
+        marginEnd:20,
     },
     text:{
         color:'#fff',

@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
-        marginHorizontal:12,
+        marginHorizontal:20,
         marginBottom:60,
-        marginTop:10,
+        marginTop:30,
     },
     logoContainer:{
         flexDirection:'row',
