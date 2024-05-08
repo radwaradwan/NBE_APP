@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         marginStart:22,
         marginEnd:20,
+        marginVertical:8,
     },
     text:{
         color:'#fff',
