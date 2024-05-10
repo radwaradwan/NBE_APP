@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { View , StyleSheet} from 'react-native';
 import OtpInputs from 'react-native-otp-inputs';
 
@@ -7,8 +6,7 @@ import OtpInputs from 'react-native-otp-inputs';
 function OTP(){
     return(
         <View style={styles.container}>
-            <Text>hello</Text>
-            <OtpInputs inputStyles={styles.otp} numberOfInputs={6} autofillFromClipboard={true} handleChange={(code) => console.log(code)}/>
+            <OtpInputs inputStyles={styles.otp} focusStyles={styles.focus} numberOfInputs={6} autofillFromClipboard={true} handleChange={(code) => console.log(code)}/>
         </View>
     );
 }
@@ -16,16 +14,21 @@ function OTP(){
 const styles = StyleSheet.create({
     container: {
         flex:1,
+        margin:10,
     },
     otp: {
         width: 40,
-        height: 40,
-        margin: 10,
-        borderColor:'gray',
-        borderRadius:5,
-        borderWidth:1,
+        height: 60,
+        borderRadius:10,
         textAlign: 'center',
-        flexDirection: 'row',
+        backgroundColor:'white',
+        fontSize:20,
+        fontWeight:'bold',
+    },
+    focus:{
+        borderColor:'#007236',
+        borderWidth:3,
+        borderRadius:10,
     },
 });
 export default OTP;
