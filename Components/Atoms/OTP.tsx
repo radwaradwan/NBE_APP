@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { View , StyleSheet} from 'react-native';
 import OtpInputs from 'react-native-otp-inputs';
 
@@ -6,6 +7,7 @@ import OtpInputs from 'react-native-otp-inputs';
 function OTP(){
     return(
         <View style={styles.container}>
+            <Text>hello</Text>
             <OtpInputs inputStyles={styles.otp} numberOfInputs={6} autofillFromClipboard={true} handleChange={(code) => console.log(code)}/>
         </View>
     );
