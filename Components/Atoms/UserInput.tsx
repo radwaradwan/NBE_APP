@@ -68,11 +68,13 @@ const styles = StyleSheet.create({
     },
     placeholder:{
         color:'#fff',
-        padding:0,
+        // padding:0,
     },
     inputIconContainer:{
         flexDirection:'row',
         alignItems:'center',
+        flex:1,
+        justifyContent:'space-between',
     },
     eyeIcon:{
         width: 20,
