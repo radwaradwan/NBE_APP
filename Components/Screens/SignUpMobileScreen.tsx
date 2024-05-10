@@ -9,7 +9,7 @@ function SignUpMobileScreen() {
             <View style={styles.innerContainer}>
                 <StatusBar translucent backgroundColor="transparent" />
                 <SignUpAbovePart/>
-                <SignUpInputs placeholder="enter your mobile number" title="Mobile number" path={require('../../Assets/images/mobile.png')} type="mobile number"/>
+                <SignUpInputs placeholder="enter your mobile number" title="Mobile number" path={require('../../Assets/images/mobile.png')} type="phone number"/>
             </View>
             <View style={styles.innerContainer}>
                 <SubmitButton title="Next"/>

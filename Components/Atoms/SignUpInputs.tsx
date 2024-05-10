@@ -11,6 +11,23 @@ type Props={
 function SignUpInputs(props: Props){
     const {placeholder,title,path,type} = props;
     const [isPasswordVisible,setIsPasswordVisible] = useState(false);
+    const [phoneNumber, setPhoneNumber] = useState('+2');
+
+// Handle phone number change
+    const handlePhoneNumberChange = (input: string) => {
+        // Check if input is empty
+        if (input === '' || input === '+') {
+            // If input is empty, maintain the '+2' prefix
+            setPhoneNumber('+2');
+        } else {
+            // Remove all non-numeric characters
+            // const numericValue = input.replace(/\D/g, '');
+            // Ensure the numeric value is not longer than 11 characters (13 total characters including '+2')
+            const formattedValue = input.substring(0, 13);
+            // Update the phone number state with the '+2' prefix and the formatted numeric value
+            setPhoneNumber( formattedValue);
+        }
+    };
     // toggle password visibility
     const togglePasswordVisibility = ()=>{
         setIsPasswordVisible(prevState => !prevState);
@@ -23,7 +40,15 @@ function SignUpInputs(props: Props){
             <View>
                 <Text style={styles.text}>{title}</Text>
                 <View style={styles.inputIconContainer}>
-                    <TextInput style={styles.placeholder} placeholder={placeholder} placeholderTextColor="#000" secureTextEntry={type === 'password' && !isPasswordVisible}/>
+                    <TextInput style={styles.placeholder}
+                    placeholder={placeholder}
+                    placeholderTextColor="#000"
+                    secureTextEntry={type === 'password' && !isPasswordVisible}
+                    keyboardType={type === 'phone number' ? 'phone-pad' : 'default'}
+                    value={type === 'phone number' ? phoneNumber : undefined}
+                    onChangeText={type === 'phone number' ? handlePhoneNumberChange : undefined}
+                    // maxLength={type === 'phone number' ? 13 : 28}
+                    />
                     {type === 'password' && (
                         <Pressable onPress={togglePasswordVisibility}>
                             <Image
