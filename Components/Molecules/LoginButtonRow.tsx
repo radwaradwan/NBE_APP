@@ -5,7 +5,9 @@ import FingerPrint from '../Atoms/FingerPrint';
 function LoginButtonRow() {
     return (
         <View style={styles.submitContainer}>
-            <SubmitButton title="Log In"/>
+            <View style={styles.test}>
+                <SubmitButton title="Log In"/>
+            </View>
             <FingerPrint/>
         </View>
     );
@@ -16,6 +18,9 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
+    },
+    test:{
+        width:270,
     },
 });
 

@@ -7,7 +7,8 @@ type Props={
     path:any,
     type:string
 };
-function UserInput(props: Props){
+
+function SignUpInputs(props: Props){
     const {placeholder,title,path,type} = props;
     const [isPasswordVisible,setIsPasswordVisible] = useState(false);
     // toggle password visibility
@@ -22,7 +23,7 @@ function UserInput(props: Props){
             <View>
                 <Text style={styles.text}>{title}</Text>
                 <View style={styles.inputIconContainer}>
-                    <TextInput style={styles.placeholder} placeholder={placeholder} placeholderTextColor="#fff" secureTextEntry={type === 'password' && !isPasswordVisible}/>
+                    <TextInput style={styles.placeholder} placeholder={placeholder} placeholderTextColor="#000" secureTextEntry={type === 'password' && !isPasswordVisible}/>
                     {type === 'password' && (
                         <Pressable onPress={togglePasswordVisibility}>
                             <Image
@@ -42,11 +43,10 @@ function UserInput(props: Props){
 const styles = StyleSheet.create({
     inputContainer:{
         flexDirection: 'row',
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        backgroundColor: '#fff',
         borderRadius:10,
         height:70,
-        borderColor: '#fff',
-        marginHorizontal:20,
+        borderColor: '#007236',
         borderWidth:1,
         marginBottom:20,
         paddingTop:5,
@@ -57,13 +57,12 @@ const styles = StyleSheet.create({
         paddingHorizontal:20,
     },
     text:{
-        color:'#fff',
+        color:'#007236',
         fontSize:18,
-        // paddingStart:20,
         // marginTop:1,
     },
     placeholder:{
-        color:'#fff',
+        color:'#000',
         paddingTop:0,
     },
     inputIconContainer:{
@@ -74,8 +73,8 @@ const styles = StyleSheet.create({
     eyeIcon:{
         width: 20,
         height: 20,
-        tintColor: '#fff',
-        // marginRight: 10,
+        tintColor: '#000',
+        marginLeft: 50,
     },
 });
-export default UserInput;
+export default SignUpInputs;

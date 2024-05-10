@@ -7,12 +7,10 @@ import RememberMeRow from '../Molecules/RememberMeRow';
 import LoginButtonRow from '../Molecules/LoginButtonRow';
 import DonotHaveAccount from '../Atoms/DonotHaveAccount';
 import Footer from '../Molecules/Footer';
-import OTP from '../Atoms/OTP';
 function Login() {
     return (
         <View>
             <LoginNav/>
-            <OTP/>
             <HeaderLoginText/>
             <LoginInputs/>
             <RememberMeRow/>

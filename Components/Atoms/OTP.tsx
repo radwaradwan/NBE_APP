@@ -31,4 +31,5 @@ const styles = StyleSheet.create({
         borderRadius:10,
     },
 });
+
 export default OTP;
