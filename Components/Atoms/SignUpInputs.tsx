@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     inputIconContainer:{
         flexDirection:'row',
         alignItems:'center',
-        flex:1,
+        // flex:1,
     },
     eyeIcon:{
         width: 20,

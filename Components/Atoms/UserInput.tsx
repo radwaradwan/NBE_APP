@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { TextInput,View , Text, StyleSheet, Image, Pressable} from 'react-native';
+import { TextInput,View , Text, StyleSheet, Image, Pressable, KeyboardAvoidingView} from 'react-native';
 
 type Props={
     placeholder:string,
@@ -15,7 +15,7 @@ function UserInput(props: Props){
         setIsPasswordVisible(prevState => !prevState);
     };
     return(
-        <View style={styles.inputContainer}>
+        <KeyboardAvoidingView style={styles.inputContainer}>
             <View style={styles.imgContainer}>
                 <Image source={path}  alt="hhhhhh"/>
             </View>
@@ -34,7 +34,7 @@ function UserInput(props: Props){
                 </View>
             </View>
 
-        </View>
+        </KeyboardAvoidingView>
     );
 
 }

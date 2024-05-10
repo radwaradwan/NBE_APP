@@ -16,7 +16,6 @@ function LoginFooter(props:Props) {
 
 const styles = StyleSheet.create({
     textContainer:{
-        backgroundColor: 'rgba(0,0,0,0.4)',
         justifyContent:'center',
     },
     text:{
