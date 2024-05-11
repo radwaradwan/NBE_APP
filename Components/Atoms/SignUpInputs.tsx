@@ -41,7 +41,7 @@ function SignUpInputs(props: Props){
                 <View style={styles.inputIconContainer}>
                     <TextInput style={styles.placeholder}
                     placeholder={placeholder}
-                    placeholderTextColor="#000"
+                    placeholderTextColor="gray"
                     secureTextEntry={type === 'password' && !isPasswordVisible}
                     keyboardType={type === 'phone number' ? 'phone-pad' : 'default'}
                     value={type === 'phone number' ? phoneNumber : undefined}
@@ -88,17 +88,19 @@ const styles = StyleSheet.create({
     placeholder:{
         color:'#000',
         paddingTop:0,
+        paddingLeft:-1,
     },
     inputIconContainer:{
         flexDirection:'row',
         alignItems:'center',
+        justifyContent:'space-between',
         // flex:1,
     },
     eyeIcon:{
         width: 20,
         height: 20,
-        tintColor: '#000',
-        marginLeft: 50,
+        tintColor: 'gray',
+        // marginLeft: 50,
     },
 });
 export default SignUpInputs;

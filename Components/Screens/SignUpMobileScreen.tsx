@@ -1,20 +1,20 @@
 import React from 'react';
 import {StyleSheet,StatusBar,View,Text,KeyboardAvoidingView, Platform} from 'react-native';
-import SignUpAbovePart from '../Organisms/SignUpAbovePart';
 import SignUpInputs from '../Atoms/SignUpInputs';
 import SubmitButton from '../Atoms/SubmitButton';
-import OTPTimer from '../Atoms/OTPTimer';
+import SignUpNav from '../Molecules/SignUpNav';
+import SignUpText from '../Atoms/SignUpText';
 function SignUpMobileScreen() {
     return (
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
             <View style={styles.innerContainer}>
                 <StatusBar translucent backgroundColor="transparent" />
-                <SignUpAbovePart/>
+                <SignUpNav/>
+                <SignUpText text1="Mobile number" text2= " Enter the mobile number registred in the bank " />
                 <SignUpInputs placeholder="enter your mobile number" title="Mobile number"
                 path={require('../../Assets/images/mobile.png')}
                 type="phone number"
                 />
-                <OTPTimer/>
             </View>
             <View style={styles.innerContainer}>
                 <SubmitButton title="Next"/>

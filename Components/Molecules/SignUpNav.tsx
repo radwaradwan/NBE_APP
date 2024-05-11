@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         alignItems:'center',
         // marginHorizontal:20,
-        marginBottom:60,
+        marginBottom:40,
         marginTop:30,
     },
     logoContainer:{

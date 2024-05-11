@@ -8,11 +8,12 @@ function OTPTimer() {
     useEffect(() => {
         let interval: NodeJS.Timeout;
         if (timer > 0) {
-        interval = setInterval(() => {
-            setTimer(prevTimer => prevTimer - 1);
-        }, 1000);
-        } else {
-        setIsResendEnabled(true);
+            interval = setInterval(() => {
+                setTimer(prevTimer => prevTimer - 1);
+            }, 1000);
+        }
+        else {
+            setIsResendEnabled(true);
         }
 
         return () => clearInterval(interval);
@@ -26,7 +27,7 @@ function OTPTimer() {
     return (
         <View>
             {timer > 0 ?
-            (<Text>Resend OTP in {Math.floor(timer / 60)}:{timer % 60 < 10 ? `0${timer % 60}` : timer % 60}</Text>)
+            (<Text style={styles.disabled}>Request new one in {Math.floor(timer / 60)}:{timer % 60 < 10 ? `0${timer % 60}` : timer % 60}</Text>)
             :
             (
             <TouchableOpacity onPress={handleResendOTP} disabled={!isResendEnabled}>
@@ -39,10 +40,14 @@ function OTPTimer() {
 
 const styles = StyleSheet.create({
     enabled:{
-        color:'blue',
+        color:'#007236',
+        fontWeight:'bold',
+        fontSize:16,
     },
     disabled:{
-        color:'gray',
+        color:'#000',
+        fontWeight:'bold',
+        fontSize:16,
     },
 
 });

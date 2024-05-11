@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     placeholder:{
         color:'#fff',
         paddingTop:0,
+        paddingLeft:-1,
     },
     inputIconContainer:{
         flexDirection:'row',
