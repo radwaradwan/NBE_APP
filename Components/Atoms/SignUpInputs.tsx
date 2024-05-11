@@ -19,9 +19,8 @@ function SignUpInputs(props: Props){
         if (input === '' || input === '+') {
             // If input is empty, maintain the '+2' prefix
             setPhoneNumber('+2');
-        } else {
-            // Remove all non-numeric characters
-            // const numericValue = input.replace(/\D/g, '');
+        }
+        else {
             // Ensure the numeric value is not longer than 11 characters (13 total characters including '+2')
             const formattedValue = input.substring(0, 13);
             // Update the phone number state with the '+2' prefix and the formatted numeric value
