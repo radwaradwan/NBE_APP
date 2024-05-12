@@ -1,21 +1,32 @@
 import React from 'react';
-import {View, StyleSheet,Image} from 'react-native';
+import {View, StyleSheet,Image, Pressable} from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
-function BackButton() {
+type Props = {
+    onPress: () => void,
+};
+
+
+function BackButton(props: Props) {
+    const {onPress} = props;
     return (
-        <View style={styles.textContainer}>
-            <Image source={require('../../Assets/images/arrowback.png')}/>
+        <View style={styles.buttonOuterContainer}>
+            <Pressable style={styles.buttonInnerContainer} onPress={onPress} android_ripple={{color:'#07984C'}} >
+                <Image source={require('../../Assets/images/arrowback.png')}/>
+            </Pressable>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    textContainer:{
+    buttonOuterContainer:{
+        overflow:'hidden',
+        borderRadius:12,
+        width:40,
+    },
+    buttonInnerContainer:{
         backgroundColor:'#007236',
         padding:12,
-        width:40,
-        borderRadius:12,
         alignItems:'center',
         justifyContent:'center',
     },

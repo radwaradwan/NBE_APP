@@ -3,7 +3,7 @@ import {KeyboardAvoidingView, Platform, StyleSheet, View} from 'react-native';
 import SignUpNav from '../Molecules/SignUpNav';
 import SignUpText from '../Atoms/SignUpText';
 import SignUpInputs from '../Atoms/SignUpInputs';
-import SubmitButton from '../Atoms/SubmitButton';
+// import SubmitButton from '../Atoms/SubmitButton';
 import PasswordValidation from '../Atoms/PasswordValidation';
 function SignUpPasswordScreen(){
     return(
@@ -28,7 +28,7 @@ function SignUpPasswordScreen(){
                 </View>
             </View>
             <View style={styles.innerContainer}>
-                <SubmitButton title="Submit"/>
+                {/* <SubmitButton title="Submit"/> */}
             </View>
         </KeyboardAvoidingView>
 

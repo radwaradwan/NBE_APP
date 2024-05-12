@@ -2,11 +2,24 @@ import React from 'react';
 import {View, StyleSheet,Image} from 'react-native';
 import TextLogo from '../Atoms/TextLogo';
 import BackButton from '../Atoms/BackButton';
-function SignUpNav() {
+type Props = {
+    navigation:any,
+    screenName:string,
+};
+function SignUpNav(props:Props) {
+    const {navigation,screenName} = props;
+
+    const navigateToCustomScreen = () => {
+        console.log('hello custom screen');
+        navigation.navigate(screenName); // Navigate to 'otp' screen
+        console.log('hello2 custom screen');
+        console.log('...........................',screenName);
+    };
+    console.log('...',screenName);
     return (
         <View style={styles.navContainer}>
             <View>
-                <BackButton/>
+                <BackButton onPress={navigateToCustomScreen}/>
             </View>
             <View style={styles.logoContainer}>
                 <TextLogo type="splash"/>

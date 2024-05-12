@@ -10,6 +10,7 @@ type Props ={
 
 function SignUpMobileScreen(props:Props) {
     const {navigation} = props;
+    // console.log(navigation);
     // Function to navigate to SignUpOtpScreen
     const navigateToSignUpOtpScreen = () => {
         console.log('hello1');
@@ -20,7 +21,7 @@ function SignUpMobileScreen(props:Props) {
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
             <View style={styles.innerContainer}>
                 <StatusBar translucent backgroundColor="transparent" />
-                <SignUpNav/>
+                <SignUpNav screenName="login" navigation={navigation}/>
                 <SignUpText text1="Mobile number" text2= " Enter the mobile number registred in the bank " />
                 <SignUpInputs placeholder="enter your mobile number" title="Mobile number"
                 path={require('../../Assets/images/mobile.png')}
