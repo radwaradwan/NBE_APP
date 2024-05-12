@@ -4,7 +4,7 @@ import SignUpNav from '../Molecules/SignUpNav';
 import SignUpText from '../Atoms/SignUpText';
 import OTP from '../Atoms/OTP';
 import OTPTimer from '../Atoms/OTPTimer';
-import SubmitButton from '../Atoms/SubmitButton';
+// import SubmitButton from '../Atoms/SubmitButton';
 function SignUpOtpScreen(){
     return(
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -16,7 +16,7 @@ function SignUpOtpScreen(){
                 <OTPTimer/>
             </View>
             <View style={styles.innerContainer}>
-                <SubmitButton title="Submit"/>
+                {/* <SubmitButton title="Submit"/> */}
             </View>
         </KeyboardAvoidingView>
     );

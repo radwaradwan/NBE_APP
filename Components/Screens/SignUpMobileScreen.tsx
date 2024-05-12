@@ -4,7 +4,18 @@ import SignUpInputs from '../Atoms/SignUpInputs';
 import SubmitButton from '../Atoms/SubmitButton';
 import SignUpNav from '../Molecules/SignUpNav';
 import SignUpText from '../Atoms/SignUpText';
-function SignUpMobileScreen() {
+type Props ={
+    navigation :any,
+};
+
+function SignUpMobileScreen(props:Props) {
+    const {navigation} = props;
+    // Function to navigate to SignUpOtpScreen
+    const navigateToSignUpOtpScreen = () => {
+        console.log('hello1');
+        navigation.navigate('otp'); // Navigate to 'otp' screen
+        console.log('hello2');
+    };
     return (
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
             <View style={styles.innerContainer}>
@@ -17,7 +28,7 @@ function SignUpMobileScreen() {
                 />
             </View>
             <View style={styles.innerContainer}>
-                <SubmitButton title="Next"/>
+                <SubmitButton title="Next" onPress={navigateToSignUpOtpScreen}/>
                 <Text style={styles.text}>By signing up, you agree to our <Text style={styles.boldText}>Terms of Service</Text> and acknowledge that you have read our <Text style={styles.boldText}>Privacy Policy</Text>.</Text>
             </View>
         </KeyboardAvoidingView>

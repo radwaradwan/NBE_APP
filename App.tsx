@@ -1,19 +1,28 @@
 import React from 'react';
-import {View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import LoginScreen from './Components/Screens/LoginScreen';
-// import SignUpMobileScreen from './Components/Screens/SignUpMobileScreen';
+import SignUpMobileScreen from './Components/Screens/SignUpMobileScreen';
 import SignUpOtpScreen from './Components/Screens/SignUpOtpScreen';
 // import SignUpPasswordScreen from './Components/Screens/SignUpPasswordScreen';
 // import SignUpCongratulationScreen from './Components/Screens/SignUpCongratulationScreen';
+
+const Stack = createNativeStackNavigator();
 function App() {
   return(
-    <View>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="login" component={SignUpMobileScreen} options={{ headerShown: false }}/>
+          <Stack.Screen name="otp" component={SignUpOtpScreen} options={{ headerShown: false }}/>
+        </Stack.Navigator>
+      </NavigationContainer>
       {/* <LoginScreen/> */}
       {/* <SignUpMobileScreen/> */}
-      <SignUpOtpScreen />
+      {/* <SignUpOtpScreen /> */}
       {/* <SignUpPasswordScreen/> */}
       {/* <SignUpCongratulationScreen/> */}
-    </View>
+    </>
   );
 }
 
