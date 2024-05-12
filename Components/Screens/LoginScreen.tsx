@@ -1,12 +1,16 @@
 import React from 'react';
 import { ImageBackground,StyleSheet,StatusBar} from 'react-native';
 import Login from '../Organisms/Login';
-function LoginScreen() {
+type Props = {
+    navigation : any,
+};
+function LoginScreen(props: Props) {
+    const {navigation} = props;
     const backgroundImage = require('../../Assets/images/main.png');
     return (
         <ImageBackground source={backgroundImage} resizeMode="cover" style={styles.background}>
             <StatusBar translucent backgroundColor="transparent" />
-            <Login/>
+            <Login navigation={navigation}/>
         </ImageBackground>
     );
 }

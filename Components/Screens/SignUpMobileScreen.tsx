@@ -10,8 +10,6 @@ type Props ={
 
 function SignUpMobileScreen(props:Props) {
     const {navigation} = props;
-    // console.log(navigation);
-    // Function to navigate to SignUpOtpScreen
     const navigateToSignUpOtpScreen = () => {
         console.log('hello1');
         navigation.navigate('otp'); // Navigate to 'otp' screen

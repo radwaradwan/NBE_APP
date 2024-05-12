@@ -1,6 +1,6 @@
 import React from 'react';
 import {KeyboardAvoidingView, Platform, StyleSheet, View,Text} from 'react-native';
-import SignUpNav from '../Molecules/SignUpNav';
+// import SignUpNav from '../Molecules/SignUpNav';
 import SignUpText from '../Atoms/SignUpText';
 import OTP from '../Atoms/OTP';
 import OTPTimer from '../Atoms/OTPTimer';
@@ -9,7 +9,7 @@ function SignUpOtpScreen(){
     return(
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
             <View style={styles.innerContainer}>
-                <SignUpNav/>
+                {/* <SignUpNav/> */}
                 <SignUpText text1="Verification" text2="Enter 5 digit code we sent to +20 101 131 5412"/>
                 <OTP/>
                 <Text>Didn&#39;t receive the code?</Text>

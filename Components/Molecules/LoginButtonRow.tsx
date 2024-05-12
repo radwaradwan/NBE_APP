@@ -2,11 +2,22 @@ import React from 'react';
 import {View,StyleSheet} from 'react-native';
 import SubmitButton from '../Atoms/SubmitButton';
 import FingerPrint from '../Atoms/FingerPrint';
-function LoginButtonRow() {
+
+type Props ={
+    navigation :any,
+};
+
+function LoginButtonRow(props:Props) {
+    const {navigation} = props;
+    const navigateToHomeScreen = () => {
+        console.log('hello1');
+        navigation?.navigate('home'); // Navigate to 'otp' screen
+        console.log('hello2');
+    };
     return (
         <View style={styles.submitContainer}>
             <View style={styles.test}>
-                <SubmitButton title="Log In"/>
+                <SubmitButton title="Log In" onPress={navigateToHomeScreen}/>
             </View>
             <FingerPrint/>
         </View>
