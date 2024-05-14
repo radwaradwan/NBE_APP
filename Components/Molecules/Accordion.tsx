@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import DropdownMenu from '../Atoms/DropdownMenu';
 
+type Option = {
+    label: string,
+    value: string,
+}
 type AccordionProps = {
-    title: string;
-    options: string[];
+    title: string,
+    options: Option[]
 };
 
 function Accordion(props:AccordionProps){
     const {title,options} = props;
     const [expanded, setExpanded] = useState(false);
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    // const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
     return (
         <View style={styles.container}>
@@ -19,8 +23,7 @@ function Accordion(props:AccordionProps){
             </TouchableOpacity>
             {expanded && (
                 <View style={styles.dropdown}>
-                    <DropdownMenu options={options} onSelect={setSelectedOption} />
-                    {selectedOption && <Text>Selected option: {selectedOption}</Text>}
+                    <DropdownMenu options={options} />
                 </View>
             )}
         </View>
