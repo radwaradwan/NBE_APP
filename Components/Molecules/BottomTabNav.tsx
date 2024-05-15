@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../Screens/Home';
-import Transfer from '../Screens/Transfer';
+import Transfer from '../Organisms/Transfer';
 import Map from '../Screens/Map';
 import BottomTabIcon from '../Atoms/BottomTabIcon'; // Import your BottomTabIcon component
 

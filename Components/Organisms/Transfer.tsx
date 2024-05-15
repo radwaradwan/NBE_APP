@@ -22,14 +22,19 @@ const transferTo = [
 ];
 
 type transferProp={
-    onPress:()=>void,
+    navigation:any,
 };
 
 function Transfer(props:transferProp){
-    const {onPress} = props;
+    const {navigation} = props;
+    const navigateToTransferOTPScreen = () => {
+        console.log('hello1');
+        navigation.navigate('transferOTP'); // Navigate to 'otp' screen
+        console.log('hello2');
+    };
     return (
         <View style={styles.container}>
-            <SignUpNav />
+            <SignUpNav navigation={navigation} screenName="home"/>
             <Text style={styles.title}>Transfer</Text>
             <View>
                 <Accordion options={typeofTransfer} title="Type of transfer"/>
@@ -47,7 +52,7 @@ function Transfer(props:transferProp){
                 </View>
             </View>
             <View>
-                <SubmitButton title="Transfer" onPress={onPress} />
+                <SubmitButton title="Transfer" onPress={navigateToTransferOTPScreen} />
             </View>
         </View>
     );

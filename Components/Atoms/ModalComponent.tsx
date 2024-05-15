@@ -1,18 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Modal from 'react-native-modal';
-import Transfer from '../Screens/Transfer';
+// import Transfer from '../Screens/Transfer';
 import SubmitButton from './SubmitButton';
-function ModalComponent() {
-    const [isModalVisible, setModalVisible] = useState<boolean>(false);
+import TransferOtpScreen from '../Organisms/TransferOtpScreen';
+type Props ={
+    navigation :any,
+};
+function ModalComponent(props:Props) {
+    // const [isModalVisible, setModalVisible] = useState<boolean>(false);
 
-    const toggleModal = () => {
-        setModalVisible(!isModalVisible);
+    // const toggleModal = () => {
+    //     setModalVisible(!isModalVisible);
+    // };
+    const {navigation} = props;
+    const navigateToHomeScreen = () => {
+        console.log('hello1');
+        navigation.navigate('home'); // Navigate to 'otp' screen
+        console.log('hello2');
     };
 
-    const closeModal = () => {
-        setModalVisible(false);
-    };
+    // const closeModal = () => {
+    //     setModalVisible(false);
+    // };
 
     const renderModalContent = () => (
         <View style={styles.modalOuterContent}>
@@ -26,15 +36,16 @@ function ModalComponent() {
                 </TouchableOpacity> */}
             </View>
             <View>
-                    <SubmitButton title="Finish" onPress={closeModal}/>
+                    <SubmitButton title="Finish" onPress={navigateToHomeScreen}/>
             </View>
         </View>
     );
 
     return (
         <View style={styles.container}>
-            <Transfer onPress={toggleModal}/>
-            <Modal isVisible={isModalVisible} animationIn="fadeIn" animationOut="fadeOut">
+            {/* <Transfer onPress={toggleModal}/> */}
+            <TransferOtpScreen navigation={navigation}/>
+            <Modal isVisible={true} animationIn="fadeIn" animationOut="fadeOut">
                 {renderModalContent()}
             </Modal>
         </View>
