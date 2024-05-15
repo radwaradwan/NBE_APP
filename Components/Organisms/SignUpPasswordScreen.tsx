@@ -3,13 +3,22 @@ import {KeyboardAvoidingView, Platform, StyleSheet, View} from 'react-native';
 import SignUpNav from '../Molecules/SignUpNav';
 import SignUpText from '../Atoms/SignUpText';
 import SignUpInputs from '../Atoms/SignUpInputs';
-// import SubmitButton from '../Atoms/SubmitButton';
+import SubmitButton from '../Atoms/SubmitButton';
 import PasswordValidation from '../Atoms/PasswordValidation';
-function SignUpPasswordScreen(){
+type Props ={
+    navigation :any,
+};
+function SignUpPasswordScreen(props:Props){
+    const {navigation} = props;
+    const navigateToSignUpCongratScreen = () => {
+        console.log('hello1');
+        navigation.navigate('signupcongrat'); // Navigate to 'otp' screen
+        console.log('hello2');
+    };
     return(
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
             <View style={styles.innerContainer}>
-                <SignUpNav/>
+                <SignUpNav screenName="otp" navigation={navigation}/>
                 <SignUpText text1="Set your password" text2="Enter a strong password for your online banking account"/>
                 <SignUpInputs placeholder="write your password" title="Password"
                 path={require('../../Assets/images/password.png')} type="password"/>
@@ -28,7 +37,7 @@ function SignUpPasswordScreen(){
                 </View>
             </View>
             <View style={styles.innerContainer}>
-                {/* <SubmitButton title="Submit"/> */}
+                <SubmitButton title="Submit" onPress={navigateToSignUpCongratScreen}/>
             </View>
         </KeyboardAvoidingView>
 

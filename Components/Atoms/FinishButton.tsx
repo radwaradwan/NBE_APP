@@ -2,17 +2,18 @@ import React from 'react';
 import {View, Text, Pressable, StyleSheet} from 'react-native';
 type Props = {
     title: string;
+    onPress: () => void;
 };
 
-function pressHandler() {
-    console.log('hello');
-}
+// function pressHandler() {
+//     console.log('hello');
+// }
 
 function FinishButton(props: Props) {
-    const {title} = props;
+    const {title,onPress} = props;
     return (
         <View style={styles.buttonOuterContaier}>
-            <Pressable style={styles.buttonInnerContainer} onPress={pressHandler} android_ripple={{color:'#07984C'}} >
+            <Pressable style={styles.buttonInnerContainer} onPress={onPress} android_ripple={{color:'#07984C'}} >
                 <Text style={styles.buttonText}>{title}</Text>
             </Pressable>
         </View>

@@ -2,9 +2,10 @@ import React from 'react';
 import {View,StyleSheet} from 'react-native';
 import SubmitButton from '../Atoms/SubmitButton';
 import FingerPrint from '../Atoms/FingerPrint';
-
+// import { NavigationProp } from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 type Props ={
-    navigation :any,
+    navigation :any;
 };
 
 function LoginButtonRow(props:Props) {
@@ -14,6 +15,8 @@ function LoginButtonRow(props:Props) {
         navigation?.navigate('home'); // Navigate to 'otp' screen
         console.log('hello2');
     };
+    // const  navigate  = useNavigation<StackNavigationProp<RootStackParamList>>();
+    // const navigation = useNavigation();
     return (
         <View style={styles.submitContainer}>
             <View style={styles.test}>

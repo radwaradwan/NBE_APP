@@ -1,79 +1,83 @@
 import React, { useState } from 'react';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 //   import AntDesign from '@expo/vector-icons/AntDesign';
-
-// const data = [
-// { label: 'Item 1', value: '1' },
-// { label: 'Item 2', value: '2' },
-// { label: 'Item 3', value: '3' },
-// { label: 'Item 4', value: '4' },
-// { label: 'Item 5', value: '5' },
-// { label: 'Item 6', value: '6' },
-// { label: 'Item 7', value: '7' },
-// { label: 'Item 8', value: '8' },
-// ];
 type Option = {
     label: string,
     value: string,
-}
-type Props={
-    options: Option[],
 };
-
-function DropdownMenu (props:Props) {
+type dropDownProps = {
+    // title: string,
+    options: Option[]
+};
+function DropdownMenu(props:dropDownProps) {
     const {options} = props;
-const [value, setValue] = useState<string>('');
+    const [value, setValue] = useState<string>(' ');
+    const [pressed,setPressed] = useState<boolean>(false);
 
-return (
-    <Dropdown
-        style={styles.dropdown}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
-        iconStyle={styles.iconStyle}
-        data={options}
-        // search
-        maxHeight={300}
-        labelField="label"
-        valueField="value"
-        placeholder="Select item"
-        // searchPlaceholder="Search..."
-        value={value}
-        onChange={item => {
-        setValue(item.value);
-    }}
-    // renderLeftIcon={() => (
-    //     <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
-    // )}
-    />
-);
+    return (
+        <View style={pressed && styles.mainContainerPressed}>
+            <Dropdown
+                style={styles.dropdown}
+                placeholderStyle={styles.placeholderStyle}
+                selectedTextStyle={styles.selectedTextStyle}
+                iconStyle={styles.iconStyle}
+                containerStyle={styles.menuContainer}
+                data={options}
+                itemTextStyle={styles.itemText}
+                maxHeight={300}
+                labelField="label"
+                valueField="value"
+                placeholder="Select Option"
+                searchPlaceholder="Search..."
+                value={value}
+                onChange={item => {
+                setValue(item.value);
+                }}
+                onFocus={() => setPressed(true)} // Set pressed to true when dropdown is focused
+                onBlur={() => setPressed(false)}
+            />
+        </View>
+        );
 }
 
 export default DropdownMenu;
 
 const styles = StyleSheet.create({
+    mainContainerPressed:{
+        height:250,
+    },
 dropdown: {
-    margin: 16,
+    marginHorizontal: 16,
     height: 50,
-    // borderBottomColor: '#0f0',
-    // borderBottomWidth: 0.5,
+},
+menuContainer:{
+    marginTop:0,
+    marginHorizontal:0,
+    backgroundColor:'#fff',
+    borderRadius:10,
+    borderColor:'#0f0',
+    borderWidth:1,
 },
 icon: {
     marginRight: 5,
 },
 placeholderStyle: {
     fontSize: 16,
+    fontWeight:'bold',
+    color:'#000',
 },
 selectedTextStyle: {
     fontSize: 16,
+    fontWeight:'bold',
+    color:'#000',
 },
 iconStyle: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
 },
-inputSearchStyle: {
-    height: 40,
-    fontSize: 16,
+itemText:{
+color:'#000',
 },
 });

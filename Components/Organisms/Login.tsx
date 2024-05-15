@@ -6,16 +6,22 @@ import HeaderLoginText from '../Atoms/HeaderLoginText';
 import RememberMeRow from '../Molecules/RememberMeRow';
 import LoginButtonRow from '../Molecules/LoginButtonRow';
 import DonotHaveAccount from '../Atoms/DonotHaveAccount';
+// import {useNavigation} from '@react-navigation/native';
 import Footer from '../Molecules/Footer';
-function Login() {
+// import { NavigationProp } from '@react-navigation/native';
+type Props = {
+    navigation : any,
+};
+function Login(props:Props) {
+    const {navigation} = props;
     return (
         <View>
             <LoginNav/>
             <HeaderLoginText/>
             <LoginInputs/>
             <RememberMeRow/>
-            <LoginButtonRow/>
-            <DonotHaveAccount/>
+            <LoginButtonRow navigation={navigation}/>
+            <DonotHaveAccount navigation={navigation}/>
             <Footer/>
         </View>
     );

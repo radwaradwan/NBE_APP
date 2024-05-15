@@ -1,14 +1,22 @@
 import React from 'react';
 import {View,Text, StyleSheet, Pressable} from 'react-native';
-
-function DonotHaveAccount() {
-    const pressHandler = () =>{
-        console.log('pressed');
+type Props ={
+    navigation:any,
+};
+function DonotHaveAccount(props: Props) {
+    const {navigation} = props;
+    const navigateToSignUpMobileScreen = () => {
+        console.log('hello1');
+        navigation.navigate('signupMobile'); // Navigate to 'otp' screen
+        console.log('hello2');
     };
+    // const pressHandler = () =>{
+    //     console.log('pressed');
+    // };
     return (
         <View style={styles.textContainer}>
             <Text style={styles.text}>Don&#39;t have an account?</Text>
-            <Pressable onPress={pressHandler}>
+            <Pressable onPress={navigateToSignUpMobileScreen}>
                 <Text style={styles.signUpButton}>Sign up</Text>
             </Pressable>
         </View>

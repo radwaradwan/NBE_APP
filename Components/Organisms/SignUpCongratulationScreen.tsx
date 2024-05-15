@@ -3,8 +3,16 @@ import {ImageBackground, StyleSheet, Text, View,StatusBar} from 'react-native';
 import Logo from '../Atoms/Logo';
 import TextLogo from '../Atoms/TextLogo';
 import FinishButton from '../Atoms/FinishButton';
-
-function SignUpCongratulationScreen(){
+type Props ={
+    navigation :any,
+};
+function SignUpCongratulationScreen(props:Props){
+    const {navigation} = props;
+    const navigateToHomeScreen = () => {
+        console.log('hello1');
+        navigation.navigate('home'); // Navigate to 'otp' screen
+        console.log('hello2');
+    };
     return(
         <View style={styles.outerContainer}>
                 <StatusBar translucent backgroundColor="transparent" />
@@ -18,7 +26,7 @@ function SignUpCongratulationScreen(){
                         <Text style={styles.underCongrat}>You have successfully registered in NBE online banking service</Text>
                     </View>
                     <View style={styles.FinishButton}>
-                        <FinishButton title="Finish"/>
+                        <FinishButton title="Finish" onPress={navigateToHomeScreen}/>
                     </View>
                 </ImageBackground>
         </View>
