@@ -6,14 +6,16 @@ import SignUpScreen from './Components/Screens/SignUpScreen';
 import Home from './Components/Screens/Home';
 import TransferScreen from './Components/Screens/TransferScreen';
 // import SettingsRow from './Components/Molecules/SettingsRow';
-import SendMoney from './Components/Molecules/SendMoney';
+// import SendMoney from './Components/Molecules/SendMoney';
+// import History from './Components/Molecules/History';
+import TopNav from './Components/Molecules/TopNav';
 const Stack = createNativeStackNavigator();
 function App() {
   return(
     <>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="setting" component={SendMoney} options={{ headerShown: false }}/>
+          <Stack.Screen name="setting" component={TopNav} options={{ headerShown: false }}/>
           <Stack.Screen name="transferScreen" component={TransferScreen} options={{ headerShown: false }}/>
           {/* <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }}/> */}
           <Stack.Screen name="signup" component={SignUpScreen} options={{ headerShown: false }}/>
