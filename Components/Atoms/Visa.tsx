@@ -48,8 +48,9 @@ function Visa(props:visaProp){
 
 const styles = StyleSheet.create({
 container:{
-    margin:20,
+    marginBottom:20,
     paddingVertical:20,
+    marginEnd:10,
     paddingRight:10,
     paddingLeft:25,
     width:326,

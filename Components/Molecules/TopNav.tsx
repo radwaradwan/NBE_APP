@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
     outerContainer:{
         flexDirection:'row',
         justifyContent:'space-between',
+        marginTop:30,
+        // marginBottom:20,
     },
     menuIcon:{
             justifyContent:'center',

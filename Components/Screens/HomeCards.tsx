@@ -1,23 +1,17 @@
 import React from 'react';
-import {StatusBar, StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View,Text} from 'react-native';
 import TopNav from '../Molecules/TopNav';
-import BalanceCard from '../Atoms/BalanceCard';
-import SettingsRow from '../Molecules/SettingsRow';
-import SendMoney from '../Molecules/SendMoney';
 import History from '../Molecules/History';
+import VisaRow from '../Molecules/VisaRow';
 // import BottomTabNavigator from '../Molecules/BottomTabNav';
-type Props = {
-    navigation:any,
-};
-function Home(props:Props){
-    const {navigation} = props;
+function HomeCards(){
+
     return(
         <View style={styles.container}>
             <StatusBar translucent backgroundColor="transparent" barStyle="dark-content"/>
             <TopNav/>
-            <BalanceCard navigation={navigation}/>
-            <SettingsRow/>
-            <SendMoney/>
+            <Text style={styles.text}>Cards</Text>
+            <VisaRow/>
             <View style={styles.historyContainer}>
                 <History/>
             </View>
@@ -30,8 +24,15 @@ const styles = StyleSheet.create({
 container:{
     padding:10,
 },
-historyContainer:{
-height:200,
+text:{
+    color:'#000',
+    fontSize:19,
+    fontWeight:'bold',
+    marginVertical:10,
+
 },
+historyContainer:{
+    height:350,
+    },
 });
-export default Home;
+export default HomeCards;

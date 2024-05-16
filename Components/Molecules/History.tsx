@@ -11,7 +11,7 @@ function History() {
     return (
         <View>
             <Text style={styles.text}>History</Text>
-            <ScrollView >
+            <ScrollView style={styles.container}>
                 <HistoryRow name="Carrefour" path={car} date="20-2-2024" text="$50.25" type="home"/>
                 <HistoryRow name="Amazon" path={amazon} date="20-2-2024" text="$50.25" type="home"/>
                 <HistoryRow name="Jumia" path={jumia} date="20-2-2024" text="$50.25" type="home"/>
@@ -32,6 +32,9 @@ function History() {
     );
 }
 const styles = StyleSheet.create({
+    container:{
+        // height:200,
+    },
     text:{
         color:'#000',
         fontSize:19,

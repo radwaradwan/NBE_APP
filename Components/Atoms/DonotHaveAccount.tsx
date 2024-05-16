@@ -7,7 +7,7 @@ function DonotHaveAccount(props: Props) {
     const {navigation} = props;
     const navigateToSignUpMobileScreen = () => {
         console.log('hello1');
-        navigation.navigate('signupMobile'); // Navigate to 'otp' screen
+        navigation.navigate('signup'); // Navigate to 'otp' screen
         console.log('hello2');
     };
     // const pressHandler = () =>{

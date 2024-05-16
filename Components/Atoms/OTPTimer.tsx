@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 function OTPTimer() {
-    const [timer, setTimer] = useState<number>(120); // Timer in seconds
+    const [timer, setTimer] = useState<number>(60); // Timer in seconds
     const [isResendEnabled, setIsResendEnabled] = useState<boolean>(false);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ function OTPTimer() {
     }, [timer]);
 
     const handleResendOTP = () => {
-        setTimer(120); // Reset timer
+        setTimer(60); // Reset timer
         setIsResendEnabled(false); // Disable resend button
     };
 

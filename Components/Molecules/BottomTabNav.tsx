@@ -1,43 +1,21 @@
+
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { Text } from 'react-native'; // Import Text component
 import Home from '../Screens/Home';
-import Transfer from '../Organisms/Transfer';
 import Map from '../Screens/Map';
-import BottomTabIcon from '../Atoms/BottomTabIcon'; // Import your BottomTabIcon component
+import TransferScreen from '../Screens/TransferScreen';
 
 const Tab = createBottomTabNavigator();
 
-function BottomTabNav() {
+const BottomTabNavigator = () => {
     return (
-        <Tab.Navigator
-        screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused }) => {
-            let iconPath;
-            if (route.name === 'Home') {
-                iconPath = focused
-                ? require('../assets/home-icon-focused.png') // Replace with your focused icon path
-                : require('../assets/home-icon.png'); // Replace with your unfocused icon path
-            } 
-            else if (route.name === 'transfer') {
-                iconPath = focused
-                ? require('../assets/transfer-icon-focused.png') // Replace with your focused icon path
-                : require('../assets/transfer-icon.png'); // Replace with your unfocused icon path
-            } 
-            else if (route.name === 'map') {
-                iconPath = focused
-                ? require('../assets/map-icon-focused.png') // Replace with your focused icon path
-                : require('../assets/map-icon.png'); // Replace with your unfocused icon path
-            }
-
-            return <BottomTabIcon text={route.name} path={iconPath} />;
-            },
-        })}
-        >
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="transfer" component={Transfer} />
-        <Tab.Screen name="map" component={Map} />
+        <Tab.Navigator>
+        <Tab.Screen name="home" component={Home} options={{ headerShown: false }}/>
+        <Tab.Screen name="map" component={Map} options={{ headerShown: false }}/>
+        <Tab.Screen name="transferScreen" component={TransferScreen} options={{ headerShown: false }}/>
         </Tab.Navigator>
     );
-}
+};
 
-export default BottomTabNav;
+export default BottomTabNavigator;

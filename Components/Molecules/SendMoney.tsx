@@ -27,6 +27,7 @@ function SendMoney() {
 const styles = StyleSheet.create({
 container:{
     flexDirection:'row',
+    marginBottom:20,
 },
 text:{
     color:'#000',
