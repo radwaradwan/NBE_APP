@@ -12,7 +12,8 @@ function LoginButtonRow(props:Props) {
     const {navigation} = props;
     const navigateToHomeScreen = () => {
         console.log('hello1');
-        navigation?.navigate('home'); // Navigate to 'otp' screen
+        // navigation?.navigate('home'); // Navigate to 'otp' screen
+        navigation.navigate('Drawer');
         console.log('hello2');
     };
     // const  navigate  = useNavigation<StackNavigationProp<RootStackParamList>>();

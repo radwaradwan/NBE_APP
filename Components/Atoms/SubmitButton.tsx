@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         padding:14,
         flexDirection:'row',
         alignItems:'center',
-        // justifyContent:'space-around',
+        // justifyContent:'center',
     },
     buttonText:{
         color: 'white',

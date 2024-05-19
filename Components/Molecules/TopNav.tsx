@@ -1,13 +1,16 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+// import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function TopNav() {
     return (
         <View style={styles.outerContainer}>
             <View style={styles.innerContainer}>
-                <View style={styles.menuIcon}>
-                    <Image style={styles.icon} source={require('../../Assets/images/menuIcon.png')}/>
-                </View>
+                {/* <View style={styles.menuIcon}>
+                    <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                        <Image style={styles.icon} source={require('../../Assets/images/menuIcon.png')}/>
+                    </TouchableOpacity>
+                </View> */}
                 <View style={styles.innerContainer}>
                     <View>
                         <Image source={require('../../Assets/images/man.png')}/>
@@ -18,27 +21,28 @@ function TopNav() {
                     </View>
                 </View>
             </View>
-            <View style={styles.textContainer}>
+            {/* <View style={styles.textContainer}>
                 <Image source={require('../../Assets/images/bell.png')}/>
-            </View>
+            </View> */}
         </View>
     );
 }
 const styles = StyleSheet.create({
     outerContainer:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        marginTop:30,
+        // flexDirection:'row',
+        // justifyContent:'space-between',
+        // backgroundColor:'#F1F3FB',
+        // marginTop:30,
         // marginBottom:20,
     },
-    menuIcon:{
-            justifyContent:'center',
-            marginEnd:10,
-    },
-    icon:{
-        width:20,
-        height:20,
-    },
+    // menuIcon:{
+    //         justifyContent:'center',
+    //         marginEnd:10,
+    // },
+    // icon:{
+    //     width:20,
+    //     height:20,
+    // },
 innerContainer:{
 flexDirection:'row',
 },
@@ -48,9 +52,9 @@ marginStart:10,
 GM:{
 color:'#000',
 },
-textContainer:{
-justifyContent:'center',
-},
+// textContainer:{
+// justifyContent:'center',
+// },
 name:{
     fontWeight:'bold',
     color:'#000',

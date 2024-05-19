@@ -1,6 +1,6 @@
 import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
-import TopNav from '../Molecules/TopNav';
+// import TopNav from '../Molecules/TopNav';
 import BalanceCard from '../Atoms/BalanceCard';
 import SettingsRow from '../Molecules/SettingsRow';
 import SendMoney from '../Molecules/SendMoney';
@@ -14,7 +14,7 @@ function Home(props:Props){
     return(
         <View style={styles.container}>
             <StatusBar translucent backgroundColor="transparent" barStyle="dark-content"/>
-            <TopNav/>
+            {/* <TopNav/> */}
             <BalanceCard navigation={navigation}/>
             <SettingsRow/>
             <SendMoney/>
