@@ -10,10 +10,10 @@ type Props ={
 function HistoryRow(props:Props) {
     const {name,path,text,date,type} = props;
     return (
-        <View style={styles.outerContainer}>
+        <View style={type === 'ben' ? styles.benOuterContainer : styles.hisOuterContainer}>
             <View style={styles.innerContainer}>
                 <View>
-                    <Image source={path}/>
+                    <Image source={path} style={type === 'ben' ? styles.img : undefined}/>
                 </View>
                 <View style={styles.nameContainer}>
                     <Text style={styles.name}>{name}</Text>
@@ -28,12 +28,20 @@ function HistoryRow(props:Props) {
     );
 }
 const styles = StyleSheet.create({
-    outerContainer:{
+    hisOuterContainer:{
         flexDirection:'row',
         justifyContent:'space-between',
         padding:10,
         borderBottomColor:'gray',
         borderBottomWidth:1,
+    },
+    benOuterContainer:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        padding:10,
+        backgroundColor:'white',
+        borderRadius:15,
+        marginBottom:10,
     },
 innerContainer:{
 flexDirection:'row',
@@ -53,5 +61,10 @@ text:{
     fontSize:20,
     fontWeight:'bold',
 },
+img:{
+    width:59,
+    height:59,
+},
 });
+
 export default HistoryRow;

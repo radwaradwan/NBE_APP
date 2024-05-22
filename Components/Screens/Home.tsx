@@ -29,6 +29,8 @@ function Home(props:Props){
 const styles = StyleSheet.create({
 container:{
     padding:10,
+    // backgroundColor:'#F5F5F5',
+    backgroundColor:'#F1F3FB',
 },
 historyContainer:{
 height:200,

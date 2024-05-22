@@ -67,6 +67,7 @@ container:{
 marginHorizontal:20,
 justifyContent:'space-between',
 marginBottom:10,
+backgroundColor:'#F1F3FB',
 },
 title:{
 marginTop:-130,

@@ -11,10 +11,10 @@ function SendMoney() {
             <Text style={styles.text}>Send money</Text>
             <ScrollView contentContainerStyle={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
                 <SendMoneyCard  text="Ayman" path={person1}/>
-                <SendMoneyCard text="Alex" path={person2}/>
+                <SendMoneyCard  text="Alex" path={person2}/>
                 <SendMoneyCard  text="Soha" path={person3}/>
                 <SendMoneyCard  text="Ayman" path={person1}/>
-                <SendMoneyCard text="Alex" path={person2}/>
+                <SendMoneyCard  text="Alex" path={person2}/>
                 <SendMoneyCard  text="Soha" path={person3}/>
                 <SendMoneyCard  text="Ayman" path={person1}/>
                 <SendMoneyCard text="Alex" path={person2}/>

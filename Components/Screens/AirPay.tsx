@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
 import {StatusBar, StyleSheet, View,Text} from 'react-native';
-import TopNav from '../Molecules/TopNav';
+// import TopNav from '../Molecules/TopNav';
 import VisaRow from '../Molecules/VisaRow';
 import SubmitButton from '../Atoms/SubmitButton';
 import ModalApp from '../Atoms/ModalApp';
-// import BottomTabNavigator from '../Molecules/BottomTabNav';
+
 type Props = {
 navigation:any,
 };
@@ -14,7 +14,7 @@ function AirPay(props:Props){
     return(
         <View style={styles.container}>
             <StatusBar translucent backgroundColor="transparent" barStyle="dark-content"/>
-            <TopNav/>
+            {/* <TopNav/> */}
             <Text style={styles.text}>Cards</Text>
             <VisaRow/>
             <View style={styles.dashedSquareContainer}>
@@ -38,7 +38,6 @@ function AirPay(props:Props){
                     // cancelButtonText="cancel"
                     />}
             </View>
-            {/* <BottomTabNavigator/> */}
         </View>
     );
 }
@@ -46,6 +45,7 @@ function AirPay(props:Props){
 const styles = StyleSheet.create({
 container:{
     padding:10,
+    backgroundColor:'#F1F3FB',
 },
 text:{
     color:'#000',
@@ -58,8 +58,8 @@ dashedSquareContainer:{
 alignItems:'center',
 },
 dashedSquare: {
-    marginTop:40,
-    marginBottom:30,
+    marginTop:30,
+    marginBottom:20,
     width: 350,
     height: 210,
     borderWidth: 2,
@@ -73,9 +73,6 @@ dashedSquareText:{
     color:'#007236',
     fontSize:15,
 },
-// buttonContainer:{
-// flexDirection:'row',
-// alignItems:'center',
-// },
+
 });
 export default AirPay;

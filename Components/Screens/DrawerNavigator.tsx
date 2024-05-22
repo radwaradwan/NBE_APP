@@ -1,13 +1,16 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Home from './Home';
-import HomeCards from './HomeCards';
-import TransferScreen from './TransferScreen';
+// import Home from './Home';
+// import HomeCards from './HomeCards';
+// import TransferScreen from './TransferScreen';
 import CustomDrawerContent from './CustomDrawerContent';
 // import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import TopNav from '../Molecules/TopNav';
+// import BottomTabNavigator from '../Molecules/BottomTabNav';
+import MainStackNavigator from './MainStackNavigator';
+// import AirPay from './AirPay';
 
 const Drawer = createDrawerNavigator();
 
@@ -18,7 +21,7 @@ function DrawerNavigator() {
             screenOptions={() => ({
                 headerTitle: () => (
                     <View style={styles.header}>
-                        <TopNav/>
+                        <TopNav title="Good Morning" text="Mina" type="topnav"/>
                     </View>
                 ),
                 headerRight: () => (
@@ -27,17 +30,20 @@ function DrawerNavigator() {
                     </TouchableOpacity>
                 ),
                 headerStyle: {
-                    backgroundColor: '#f0f0f0',
-                    marginVertical: 10,
+                    backgroundColor: '#F1F3FB',
                 },
-                // drawerStyle: {
-                //     backgroundColor: '#000', // Change this to your desired background color
-                // },
+                drawerStyle: {
+                    backgroundColor: '#F1F3FB', // Change this to your desired background color
+                    borderTopEndRadius:40,
+                    borderBottomEndRadius:40,
+                    width:330,
+                },
             })}
         >
-            <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="HomeCards" component={HomeCards} />
+            <Drawer.Screen name="MainStack" component={MainStackNavigator} />
+            {/* <Drawer.Screen name="HomeCards" component={HomeCards} />
             <Drawer.Screen name="TransferScreen" component={TransferScreen} />
+            <Drawer.Screen name="airpay" component={AirPay} /> */}
             {/* Add more screens to the drawer as needed */}
         </Drawer.Navigator>
     );
