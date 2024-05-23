@@ -23,7 +23,7 @@ function AirPay(props:Props){
                 </View>
             </View>
             <View>
-                <SubmitButton title="Pay Now" onPress={()=>setShowModal(!showModal)} iconRight={require('../../Assets/images/fingerPrint.png')}/>
+                <SubmitButton title="Pay Now" onPress={()=>setShowModal(!showModal)} iconRight={require('../../Assets/images/fingerPrint.png')} type="airpay"/>
                 {/* <Image source={require('../../Assets/images/fingerPrint.png')}/> */}
                     {showModal && <ModalApp
                     navigation={navigation}
@@ -34,8 +34,8 @@ function AirPay(props:Props){
                     descriptionText="Your payment to IKEA was successful"
                     money="$5,542.00"
                     screenName="airpay"
-                    confirmButtonText="confirm"
-                    // cancelButtonText="cancel"
+                    // confirmButtonText="confirm"
+                    cancelButtonText="cancel"
                     />}
             </View>
         </View>

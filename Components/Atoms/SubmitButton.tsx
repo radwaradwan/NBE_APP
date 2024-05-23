@@ -5,6 +5,7 @@ type Props = {
     title: string;
     onPress: () => void;
     iconRight?:any,
+    type?:string,
 };
 
 // function pressHandler() {
@@ -12,11 +13,11 @@ type Props = {
 // }
 
 function SubmitButton(props: Props) {
-    const {title,onPress,iconRight} = props;
+    const {title,onPress,iconRight,type} = props;
     return (
         <View style={styles.buttonOuterContaier}>
             <Pressable style={styles.buttonInnerContainer} onPress={onPress} android_ripple={{color:'#07984C'}} >
-                <Text style={[styles.buttonText, iconRight !== 'null' && styles.buttonTextIcon]}>{title}</Text>
+                <Text style={type === 'airpay' ? styles.buttonTextIcon : styles.buttonText}>{title}</Text>
                 {iconRight && <View style={styles.fingerPrintContainer}>
                     <Image source={iconRight}/>
                 </View>}
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
         // justifyContent:'center',
     },
     buttonText:{
+        flex:1,
         color: 'white',
         textAlign:'center',
         fontSize: 20,
@@ -49,6 +51,9 @@ const styles = StyleSheet.create({
     },
     buttonTextIcon:{
         marginStart:120,
+        color: 'white',
+        fontSize: 20,
+        fontWeight: 'bold',
     },
     fingerPrintContainer:{
         width:40,
