@@ -50,6 +50,7 @@ function TransferOtpScreen(props:Props){
 
 const styles = StyleSheet.create({
     outerContainer:{
+        padding:10,
         backgroundColor:'#F1F3FB',
         justifyContent:'space-between',
         height:'100%',

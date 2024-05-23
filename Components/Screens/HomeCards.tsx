@@ -23,6 +23,7 @@ function HomeCards(){
 const styles = StyleSheet.create({
 container:{
     padding:10,
+    backgroundColor:'#F1F3FB',
 },
 text:{
     color:'#000',

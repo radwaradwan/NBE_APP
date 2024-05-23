@@ -13,9 +13,9 @@ function GridListButton(props:Props) {
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={[styles.button, isActive ? styles.activeButton : styles.inactiveButton]}
+            style={[styles.button, isActive ? styles.activeButton : (type === 'add' || type === 'addinempty' ? {} : styles.inactiveButton)]}
         >
-            <Image source={path} style={isActive ? styles.activeIcon : (type === 'add' ? {} : styles.inactiveIcon)} />
+            <Image source={path} style={isActive ? styles.activeIcon : (type === 'add' ? {} : (type === 'addinempty' ? styles.activeIcon : styles.inactiveIcon))} />
         </TouchableOpacity>
     );
 }

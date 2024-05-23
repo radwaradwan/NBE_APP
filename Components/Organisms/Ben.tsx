@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View,Image } from 'react-native';
 import GridListButton from '../Atoms/GridListButton';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GridCardBen from '../Atoms/GridCardBen';
 import HistoryRow from '../Atoms/HistoryRow';
+import EmptyBen from '../Atoms/EmptyBen';
 interface MyObject {
     id:number;
     path:any;
@@ -14,90 +15,90 @@ interface MyObject {
 
 function Ben () {
     const data = [
-        {
-            id:1,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:2,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:3,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:4,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:5,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:6,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:7,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:8,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:9,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:10,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:11,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
-        {
-            id:12,
-            path:require('../../Assets/images/robert.png'),
-            name:'robert',
-            phone:'+20 102 675 9186',
-            amount:'$494,472.95',
-        },
+        // {
+        //     id:1,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:2,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:3,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:4,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:5,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:6,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:7,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:8,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:9,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:10,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:11,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
+        // {
+        //     id:12,
+        //     path:require('../../Assets/images/robert.png'),
+        //     name:'robert',
+        //     phone:'+20 102 675 9186',
+        //     amount:'$494,472.95',
+        // },
 
     ];
 
@@ -137,16 +138,23 @@ function Ben () {
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={styles.list}>
-                <FlatList
-                    data={data}
-                    renderItem={isGrid ? renderGridItem : renderListItem}
-                    keyExtractor={item => item.id.toString()}
-                    key={isGrid ? 'G' : 'L'}
-                    numColumns={isGrid ? 4 : 1}
-                    columnWrapperStyle={isGrid ? styles.columnWrapper : undefined}
-                />
-            </View>
+            {
+                data.length !== 0 ? (
+                    <View style={styles.list}>
+                        <FlatList
+                            data={data}
+                            renderItem={isGrid ? renderGridItem : renderListItem}
+                            keyExtractor={item => item.id.toString()}
+                            key={isGrid ? 'G' : 'L'}
+                            numColumns={isGrid ? 4 : 1}
+                            columnWrapperStyle={isGrid ? styles.columnWrapper : undefined}
+                        />
+                    </View>
+                ) : (
+                    <EmptyBen/>
+                )
+            }
+
         </View>
     );
 }

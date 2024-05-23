@@ -10,7 +10,7 @@ function SignUpCongratulationScreen(props:Props){
     const {navigation} = props;
     const navigateToHomeScreen = () => {
         console.log('hello1');
-        navigation.navigate('home'); // Navigate to 'otp' screen
+        navigation.navigate('login'); // Navigate to 'otp' screen
         console.log('hello2');
     };
     return(
