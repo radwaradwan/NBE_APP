@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, View,Image } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import GridListButton from '../Atoms/GridListButton';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GridCardBen from '../Atoms/GridCardBen';
@@ -11,105 +11,146 @@ interface MyObject {
     name:string;
     phone:string;
     amount:string;
+    history?: {
+        title: string;
+        date: string;
+        amount: string;
+    }[];
 }
 
-function Ben () {
+
+function Ben ({navigation}:{navigation:any}) {
     const data = [
-        // {
-        //     id:1,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:2,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:3,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:4,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:5,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:6,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:7,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:8,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:9,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:10,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:11,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
-        // {
-        //     id:12,
-        //     path:require('../../Assets/images/robert.png'),
-        //     name:'robert',
-        //     phone:'+20 102 675 9186',
-        //     amount:'$494,472.95',
-        // },
+        {
+            id:1,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+            history:[{
+                title:'Flat Rent',
+                date:'15-12-2021',
+                amount:'$892,48.0',
+            },
+            {
+                title:'House Fixes',
+                date:'15-12-2021',
+                amount:'$892,48.0',
+            },
+            ],
+        },
+        {
+            id:2,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+            history:[{
+                title:'Flat Rent',
+                date:'15-12-2021',
+                amount:'$892,48.0',
+            },
+            {
+                title:'House Fixes',
+                date:'15-12-2021',
+                amount:'$892,48.0',
+            },
+            {
+                title:'House Fixes',
+                date:'15-12-2021',
+                amount:'$892,48.0',
+            },
+            ],
+        },
+        {
+            id:3,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:4,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:5,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:6,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:7,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:8,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:9,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:10,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:11,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
+        {
+            id:12,
+            path:require('../../Assets/images/robert.png'),
+            name:'robert',
+            phone:'+20 102 675 9186',
+            amount:'$494,472.95',
+        },
 
     ];
 
     const [isGrid, setIsGrid] = useState<boolean>(true);
 
+    const handleCardPress = (item: MyObject) => {
+        navigation.navigate('DetailCard', item);
+    };
+
     const renderGridItem = ({item}:{ item: MyObject }) => (
-        <GridCardBen path={item.path} text={item.name} />
+        <TouchableOpacity onPress={()=>handleCardPress(item)}>
+            <GridCardBen path={item.path} text={item.name} />
+        </TouchableOpacity>
     );
 
     const renderListItem = ({item}:{ item: MyObject }) => (
-        <HistoryRow path={item.path} name={item.name} date={item.phone} text={item.amount} type="ben"/>
+        <TouchableOpacity onPress={()=>handleCardPress(item)}>
+            <HistoryRow path={item.path} name={item.name} date={item.phone} text={item.amount} type="ben"/>
+        </TouchableOpacity>
     );
 
     return (

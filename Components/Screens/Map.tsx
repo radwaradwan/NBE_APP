@@ -9,10 +9,10 @@ function Map(){
             provider={PROVIDER_GOOGLE}
                 style={styles.map}
                 region={{
-                    latitude: 30.05,
-                    longitude: 31.35,
-                    latitudeDelta: 0.1,
-                    longitudeDelta: 0.1,
+                    latitude: 37.78825,
+                    longitude: -122.4324,
+                    latitudeDelta: 0.015,
+                    longitudeDelta: 0.0121,
                 }}
             >
             <Marker

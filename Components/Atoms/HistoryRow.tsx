@@ -2,19 +2,19 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 type Props ={
     name:string,
-    path:any,
+    path?:any,
     date:string,
     text:string,
-    type:string,
+    type?:string,
 };
 function HistoryRow(props:Props) {
     const {name,path,text,date,type} = props;
     return (
         <View style={type === 'ben' ? styles.benOuterContainer : styles.hisOuterContainer}>
             <View style={styles.innerContainer}>
-                <View>
+                {path && <View>
                     <Image source={path} style={type === 'ben' ? styles.img : undefined}/>
-                </View>
+                </View>}
                 <View style={styles.nameContainer}>
                     <Text style={styles.name}>{name}</Text>
                     <Text>{date}</Text>
