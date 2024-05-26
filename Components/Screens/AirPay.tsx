@@ -34,8 +34,8 @@ function AirPay(props:Props){
                     descriptionText="Your payment to IKEA was successful"
                     money="$5,542.00"
                     screenName="airpay"
-                    // confirmButtonText="confirm"
-                    cancelButtonText="cancel"
+                    confirmButtonText="confirm"
+                    // cancelButtonText="cancel"
                     />}
             </View>
         </View>

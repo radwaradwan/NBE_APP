@@ -10,9 +10,12 @@ import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import TopNav from '../Molecules/TopNav';
 // import BottomTabNavigator from '../Molecules/BottomTabNav';
 import MainStackNavigator from './MainStackNavigator';
+import TransferScreen from './TransferScreen';
+import Transfer from '../Organisms/Transfer';
 // import AirPay from './AirPay';
 
 const Drawer = createDrawerNavigator();
+const CustomHeader = () => null;
 
 function DrawerNavigator() {
     return (
@@ -33,7 +36,7 @@ function DrawerNavigator() {
                     backgroundColor: '#F1F3FB',
                 },
                 drawerStyle: {
-                    backgroundColor: '#F1F3FB', // Change this to your desired background color
+                    backgroundColor: '#F1F3FB',
                     borderTopEndRadius:40,
                     borderBottomEndRadius:40,
                     width:330,
@@ -41,9 +44,9 @@ function DrawerNavigator() {
             })}
         >
             <Drawer.Screen name="MainStack" component={MainStackNavigator} />
-            {/* <Drawer.Screen name="HomeCards" component={HomeCards} />
-            <Drawer.Screen name="TransferScreen" component={TransferScreen} />
-            <Drawer.Screen name="airpay" component={AirPay} /> */}
+            <Drawer.Screen name="transfer" component={Transfer} options={{ header: CustomHeader }}/>
+            <Drawer.Screen name="transferScreen" component={TransferScreen} options={{headerStyle: {display:'none'},headerShown:false}}/>
+            {/* <Drawer.Screen name="airpay" component={AirPay} /> */}
             {/* Add more screens to the drawer as needed */}
         </Drawer.Navigator>
     );
