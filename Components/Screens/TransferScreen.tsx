@@ -9,7 +9,7 @@ function TransferScreen() {
     return(
         <>
             <Stack.Navigator>
-                <Stack.Screen name="transfer" component={Transfer} options={{ headerShown: false }}/>
+                <Stack.Screen name="transfer" component={Transfer} options={{headerShown:false }}/>
                 <Stack.Screen name="transferOTP" component={TransferOtpScreen} options={{ headerShown: false }}/>
                 <Stack.Screen name="home" component={Home} options={{ headerShown: false }}/>
                 <Stack.Screen name="modal" component={ModalComponent} options={{ headerShown: false }}/>

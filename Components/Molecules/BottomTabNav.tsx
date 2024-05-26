@@ -4,13 +4,13 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet, Text, View } from 'react-native'; // Consolidated imports
-import Home from '../Screens/Home';
 import Map from '../Screens/Map';
 import TransferScreen from '../Screens/TransferScreen';
 import AirPay from '../Screens/AirPay';
 // import HomeCards from '../Screens/HomeCards';
 // import Ben from '../Organisms/Ben';
 import BenScreen from '../Screens/BenScreen';
+import HomeStack from '../Screens/HomeStack';
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
@@ -27,8 +27,8 @@ const BottomTabNavigator = () => {
     return (
         <Tab.Navigator screenOptions={screenOptions}>
             <Tab.Screen
-                name="home"
-                component={Home}
+                name="homeStack"
+                component={HomeStack}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={[styles.container, focused ? { backgroundColor: '#007236' } : { backgroundColor: '#F1F3FB' }]}>

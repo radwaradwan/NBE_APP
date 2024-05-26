@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './Components/Screens/LoginScreen';
 import SignUpScreen from './Components/Screens/SignUpScreen';
 import DrawerNavigator from './Components/Screens/DrawerNavigator';
+// import BottomTabNavigator from './Components/Molecules/BottomTabNav';
 // import Input from './Components/Atoms/Input';
 // import AddBen from './Components/Organisms/AddBen';
 const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ function App() {
         <Stack.Navigator>
           <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }}/>
           <Stack.Screen name="Drawer" component={DrawerNavigator} options={{ headerShown: false }} />
+          {/* <Stack.Screen name="bottomTab" component={BottomTabNavigator} options={{ headerShown: false }}/> */}
           <Stack.Screen name="signup" component={SignUpScreen} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>

@@ -8,4 +8,4 @@ export type BenStackParamList = {
         amount: string;
         history?: { title: string; date: string; amount: string; }[];
         };
-    };
+};

@@ -4,7 +4,8 @@ import SignUpCongratulationScreen from '../Organisms/SignUpCongratulationScreen'
 import SignUpMobileScreen from '../Organisms/SignUpMobileScreen';
 import SignUpOtpScreen from '../Organisms/SignUpOtpScreen';
 import SignUpPasswordScreen from '../Organisms/SignUpPasswordScreen';
-import Home from './Home';
+// import Home from './Home';
+import HomeStack from './HomeStack';
 const Stack = createNativeStackNavigator();
 function SignUpScreen() {
     return(
@@ -14,7 +15,7 @@ function SignUpScreen() {
                 <Stack.Screen name="otp" component={SignUpOtpScreen} options={{ headerShown: false }}/>
                 <Stack.Screen name="signupPassword" component={SignUpPasswordScreen} options={{ headerShown: false }}/>
                 <Stack.Screen name="signupcongrat" component={SignUpCongratulationScreen} options={{ headerShown: false }}/>
-                <Stack.Screen name="home" component={Home} options={{ headerShown: false }}/>
+                <Stack.Screen name="homeStack" component={HomeStack} options={{ headerShown: false }}/>
             </Stack.Navigator>
         </>
     );
