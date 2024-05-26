@@ -9,7 +9,8 @@ import Map from '../Screens/Map';
 import TransferScreen from '../Screens/TransferScreen';
 import AirPay from '../Screens/AirPay';
 // import HomeCards from '../Screens/HomeCards';
-import Ben from '../Organisms/Ben';
+// import Ben from '../Organisms/Ben';
+import BenScreen from '../Screens/BenScreen';
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
@@ -56,8 +57,8 @@ const BottomTabNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name="ben"
-                component={Ben}
+                name="benScreen"
+                component={BenScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={[styles.container, focused ? { backgroundColor: '#007236' } : { backgroundColor: '#F1F3FB' }]}>

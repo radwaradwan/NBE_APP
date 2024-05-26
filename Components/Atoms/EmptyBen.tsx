@@ -1,21 +1,28 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import GridListButton from './GridListButton';
-
-function EmptyBen (){
+type Props = {
+path:any,
+title:string,
+text1:string,
+text2:string,
+type:string,
+};
+function EmptyBen (props:Props){
+    const {path,title,text1,text2,type} = props;
     return (
         <View style= {styles.emptyContainer}>
-                        <Image source={require('../../Assets/images/emptyben.png')}/>
-                        <Text style={styles.noBen}>No Beneficiaries</Text>
-                        <Text style={styles.emptyDetails}>You don&#39;t have beneficiaries, add</Text>
-                        <Text style={styles.emptyDetails}>some so you can send money</Text>
-                        <TouchableOpacity style={styles.buttonContainer}>
+                        <Image source={path}/>
+                        <Text style={styles.noBen}>{title}</Text>
+                        <Text style={styles.emptyDetails}>{text1}</Text>
+                        <Text style={styles.emptyDetails}>{text2}</Text>
+                        {type === 'ben' && <TouchableOpacity style={styles.buttonContainer}>
                             <GridListButton
                                     path={require('../../Assets/images/plus.png')}
                                     type="addinempty"
                             />
                             <Text style={styles.addText}>Add</Text>
-                    </TouchableOpacity>
+                        </TouchableOpacity>}
                     </View>
     );
 

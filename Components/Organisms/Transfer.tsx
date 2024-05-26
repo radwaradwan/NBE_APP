@@ -1,8 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import Accordion from '../Molecules/Accordion';
+import {StyleSheet, Text, View} from 'react-native';
 import SubmitButton from '../Atoms/SubmitButton';
 import SignUpNav from '../Molecules/SignUpNav';
+import DropdownMenu from '../Atoms/DropdownMenu';
+import SignUpInputs from '../Atoms/SignUpInputs';
 const typeofTransfer = [
     { label: 'Between your accounts', value: '1' },
     { label: 'From your account to different account', value: '2' },
@@ -34,24 +35,17 @@ function Transfer(props:transferProp){
     };
     return (
         <View style={styles.container}>
-            <SignUpNav navigation={navigation} screenName="home"/>
-            <Text style={styles.title}>Transfer</Text>
-            <View>
-                <Accordion options={typeofTransfer} title="Type of transfer"/>
-                <Accordion options={transferFrom} title="Transfer from"/>
-                <Accordion options={transferTo} title="Transfer to"/>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.text}>Amount to transfer</Text>
-                    <View style={styles.inputInnerContainer}>
-                        <Text style={styles.text}>$</Text>
-                        <TextInput
-                        style={styles.text}
-                        keyboardType="numeric"
-                        />
-                    </View>
+            <View style={styles.innerContainer}>
+                <SignUpNav navigation={navigation} screenName="home"/>
+                <Text style={styles.title}>Transfer</Text>
+                <View >
+                    <DropdownMenu options={typeofTransfer} title="Type of transfer"/>
+                    <DropdownMenu options={transferFrom} title="Transfer from"/>
+                    <DropdownMenu options={transferTo} title="Transfer to"/>
+                    <SignUpInputs title="Amount to transfer" type="transfer"/>
                 </View>
             </View>
-            <View>
+            <View style={styles.innerContainer}>
                 <SubmitButton title="Transfer" onPress={navigateToTransferOTPScreen} />
             </View>
         </View>
@@ -63,37 +57,23 @@ function Transfer(props:transferProp){
 const styles = StyleSheet.create({
 container:{
     flex:1,
-// marginTop:20,
-marginHorizontal:20,
-justifyContent:'space-between',
-marginBottom:10,
-backgroundColor:'#F1F3FB',
+    backgroundColor:'#F1F3FB',
+    justifyContent:'space-between',
+
+},
+innerContainer:{
+    marginBottom:10,
+    marginHorizontal:20,
 },
 title:{
-marginTop:-130,
 fontSize: 24,
 fontWeight: 'bold',
 color:'#000',
-marginBottom:-100,
-},
-inputContainer: {
-    marginBottom: 10,
-    backgroundColor:'#fff',
-    paddingTop:10,
-    paddingHorizontal:18,
-    borderRadius:10,
-    overflow:'hidden',
-    // height:400,
-},
-text: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color:'#000',
+marginBottom:20,
 },
 inputInnerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // paddingHorizontal: 10,
 },
 });
 export default Transfer;

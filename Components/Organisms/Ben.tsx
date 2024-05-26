@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { BenStackParamList } from '../Types/types';
 import GridListButton from '../Atoms/GridListButton';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GridCardBen from '../Atoms/GridCardBen';
 import HistoryRow from '../Atoms/HistoryRow';
 import EmptyBen from '../Atoms/EmptyBen';
+
 interface MyObject {
     id:number;
     path:any;
@@ -17,9 +21,9 @@ interface MyObject {
         amount: string;
     }[];
 }
+type NavigationProp = NativeStackNavigationProp<BenStackParamList, 'Ben'>;
 
-
-function Ben ({navigation}:{navigation:any}) {
+function Ben () {
     const data = [
         {
             id:1,
@@ -136,7 +140,7 @@ function Ben ({navigation}:{navigation:any}) {
     ];
 
     const [isGrid, setIsGrid] = useState<boolean>(true);
-
+    const navigation = useNavigation<NavigationProp>();
     const handleCardPress = (item: MyObject) => {
         navigation.navigate('DetailCard', item);
     };
@@ -174,6 +178,7 @@ function Ben ({navigation}:{navigation:any}) {
                         <GridListButton
                                 path={require('../../Assets/images/plus.png')}
                                 type="add"
+                                onPress={()=> navigation.navigate('AddBen')}
                         />
                         <Text style={styles.addText}>Add</Text>
                     </TouchableOpacity>
@@ -192,7 +197,7 @@ function Ben ({navigation}:{navigation:any}) {
                         />
                     </View>
                 ) : (
-                    <EmptyBen/>
+                    <EmptyBen path={require('../../Assets/images/emptyben.png')} title="No Beneficiaries" text1="You don&#39;t have beneficiaries, add" text2="some so you can send money" type="ben"/>
                 )
             }
 

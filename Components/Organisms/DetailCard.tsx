@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { RouteProp } from '@react-navigation/native';
+import { BenStackParamList } from '../Types/types';
 import HistoryRow from '../Atoms/HistoryRow';
+import EmptyBen from '../Atoms/EmptyBen';
 
 interface HistoryItem {
     title: string;
@@ -8,48 +11,31 @@ interface HistoryItem {
     amount: string;
 }
 
+type DetailCardRouteProp = RouteProp<BenStackParamList, 'DetailCard'>;
+
 interface DetailCardProps {
-    route: {
-        params: {
-            path: any;
-            name: string;
-            phone: string;
-            amount: string;
-            history: HistoryItem[];
-        };
-    };
+    route: DetailCardRouteProp;
 }
 
 function DetailCard ({ route }: DetailCardProps ) {
     const { path, name, phone, amount, history } = route.params;
 
     const renderHistoryItem = ({ item }: { item: HistoryItem }) => (
-        // <View style={styles.historyItem}>
-        //     <Text>{item.title}</Text>
-        //     <Text>{item.date}</Text>
-        //     <Text>{item.amount}</Text>
-        // </View>
-        <HistoryRow name={item.title} date={item.date} text={item.amount}/>
+        <HistoryRow name={item.title} date={item.date} text={item.amount} type="home"/>
     );
 
     return (
         <View style={styles.container}>
-            {/* <View style={styles.card}>
-                <Image source={path} style={styles.image} />
-                <Text>{name}</Text>
-                <Text>{phone}</Text>
-                <Text>{amount}</Text>
-            </View> */}
             <HistoryRow path={path} type="ben" name={name} date={phone} text={amount} />
-            <Text style={styles.historyTitle}>History</Text>
-            {history.length > 0 ? (
+            <Text style={styles.historyTitle}>Transactions History</Text>
+            {history && history.length > 0 ? (
                 <FlatList
-                    data={history}
-                    renderItem={renderHistoryItem}
-                    keyExtractor={(item, index) => index.toString()}
+                data={history}
+                renderItem={renderHistoryItem}
+                keyExtractor={(item, index) => index.toString()}
                 />
             ) : (
-                <Text>No history</Text>
+                <EmptyBen path={require('../../Assets/images/noHistory.png')} title="No History" text1="Not a single transaction was made" text2="to this account" type="history"/>
             )}
         </View>
     );
@@ -59,25 +45,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-    },
-    card: {
-        alignItems: 'center',
-        marginBottom: 16,
-    },
-    image: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
+        backgroundColor:'#F1F3FB',
     },
     historyTitle: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 8,
-    },
-    historyItem: {
-        padding: 8,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        color:'#000',
     },
 });
 

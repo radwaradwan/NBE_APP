@@ -4,8 +4,8 @@ import TextLogo from '../Atoms/TextLogo';
 import BackButton from '../Atoms/BackButton';
 // import { useNavigation } from '@react-navigation/native';
 type Props = {
-    navigation:any,
-    screenName:string,
+    navigation?:any,
+    screenName?:string,
 };
 function SignUpNav(props:Props) {
     const {navigation,screenName} = props;
@@ -34,8 +34,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
-        // marginHorizontal:20,
-        marginBottom:40,
+        marginBottom:30,
         marginTop:30,
     },
     logoContainer:{

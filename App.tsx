@@ -1,22 +1,12 @@
 import React from 'react';
+// import Transfer from './Components/Organisms/Transfer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import { createDrawerNavigator } from '@react-navigation/drawer';
 import LoginScreen from './Components/Screens/LoginScreen';
 import SignUpScreen from './Components/Screens/SignUpScreen';
-import Home from './Components/Screens/Home';
-// import TransferScreen from './Components/Screens/TransferScreen';
-// import SettingsRow from './Components/Molecules/SettingsRow';
-// import SendMoney from './Components/Molecules/SendMoney';
-// import History from './Components/Molecules/History';
-// import TopNav from './Components/Molecules/TopNav';
-// import BottomTabNavigator from './Components/Molecules/BottomTabNav';
-// import Visa from './Components/Atoms/Visa';
-// import HomeCards from './Components/Screens/HomeCards';
 import DrawerNavigator from './Components/Screens/DrawerNavigator';
-// import AirPay from './Components/Screens/AirPay';
-// import Map from './Components/Screens/Map';
-// import GridListButton from './Components/Atoms/GridListButton';
+// import Input from './Components/Atoms/Input';
+// import AddBen from './Components/Organisms/AddBen';
 const Stack = createNativeStackNavigator();
 // const Drawer = createDrawerNavigator();
 

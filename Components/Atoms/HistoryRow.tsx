@@ -15,7 +15,7 @@ function HistoryRow(props:Props) {
                 {path && <View>
                     <Image source={path} style={type === 'ben' ? styles.img : undefined}/>
                 </View>}
-                <View style={styles.nameContainer}>
+                <View style={path && styles.nameContainer}>
                     <Text style={styles.name}>{name}</Text>
                     <Text>{date}</Text>
                     {type === 'ben' && <Text>{text}</Text>}
