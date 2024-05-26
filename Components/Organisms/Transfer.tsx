@@ -36,7 +36,9 @@ function Transfer(props:transferProp){
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
-                <SignUpNav navigation={navigation} screenName="home"/>
+                <View style={styles.header}>
+                    <SignUpNav navigation={navigation} screenName="home"/>
+                </View>
                 <Text style={styles.title}>Transfer</Text>
                 <View >
                     <DropdownMenu options={typeofTransfer} title="Type of transfer"/>
@@ -64,6 +66,9 @@ container:{
 innerContainer:{
     marginBottom:10,
     marginHorizontal:20,
+},
+header:{
+marginTop:20,
 },
 title:{
 fontSize: 24,

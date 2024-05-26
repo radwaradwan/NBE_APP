@@ -15,6 +15,7 @@ const bankBranch = [
 
 
 function AddBen() {
+
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
@@ -43,13 +44,6 @@ function AddBen() {
                 </View>
 
             </View>
-            {/* <Input/>
-            <SignUpInputs placeholder="enter" title="login" type="ben"/>
-            {/* <View style={styles.menuContainer}> */}
-                {/* <Text style={styles.text}>hello</Text> */}
-            {/* <DropdownMenu options={typeofTransfer} title="hello"/>
-            {/* </View> */}
-            {/* <Input/>   */}
         </View>
     );
 }
@@ -66,6 +60,7 @@ const styles = StyleSheet.create({
     cameraContainer:{
         alignItems:'center',
         marginBottom:15,
+        marginTop:-19,
     },
     cameraInnerContainer:{
         width:138,
@@ -78,7 +73,7 @@ const styles = StyleSheet.create({
     nameContainer:{
         flexDirection:'row',
         justifyContent:'space-between',
-        marginBottom:20,
+        marginBottom:15,
     },
     name:{
         width:165,

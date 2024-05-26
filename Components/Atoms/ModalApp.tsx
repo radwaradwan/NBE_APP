@@ -36,16 +36,22 @@ function ModalApp(props:Props) {
     // const toggleModal = () => {
     //     setModalVisible(!isModalVisible);
     // };
-    const navigateToHomeScreen = () => {
+    const navigateToTransferScreen = () => {
         console.log('hello1');
         setModalVisible(!modalVisible);
-        navigation.navigate('home'); // Navigate to 'otp' screen
+        navigation.navigate('transfer'); // Navigate to 'otp' screen
         console.log('hello2');
     };
     const navigateToAirPayScreen = () => {
         console.log('hello1');
         setModalVisible(!modalVisible);
         navigation.navigate('airPay'); // Navigate to 'otp' screen
+        console.log('hello2');
+    };
+    const navigateToHomeScreen = () => {
+        console.log('hello1');
+        setModalVisible(!modalVisible);
+        navigation.navigate('home'); // Navigate to 'otp' screen
         console.log('hello2');
     };
 
@@ -65,7 +71,7 @@ function ModalApp(props:Props) {
                 </TouchableOpacity> */}
             </View>
             <View>
-                    {screenName === 'transfer' && <SubmitButton title="Finish" onPress={navigateToHomeScreen}/>}
+                    {screenName === 'transfer' && <SubmitButton title="Finish" onPress={navigateToTransferScreen}/>}
                     {screenName === 'airpay' && confirmButtonText && <SubmitButton title="Done"
                         onPress={navigateToHomeScreen}/>}
                     <View style={styles.cancelContainer}>

@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React from 'react';
+import React, {  useState } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import CustomDrawerContent from './CustomDrawerContent';
-import { View, StyleSheet, TouchableOpacity, Image, Text } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import TopNav from '../Molecules/TopNav';
 import BottomTabNavigator from '../Molecules/BottomTabNav';
 // import TransferScreen from './TransferScreen';
@@ -13,14 +13,25 @@ import BottomTabNavigator from '../Molecules/BottomTabNav';
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
+    const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+
+    const handleScreenChange = (screenName: string | undefined) => {
+        if (screenName === 'AddBen' || screenName === 'transferScreen') {
+            setIsHeaderHidden(true);
+        } else {
+            setIsHeaderHidden(false);
+        }
+    };
+
     return (
         <Drawer.Navigator
             drawerContent={(props) => <CustomDrawerContent {...props} />}
-            screenOptions={({ route }) => ({
+            screenOptions={{
+                headerShown: !isHeaderHidden,
                 headerTitle: () => (
                     <View style={styles.header}>
                         <TopNav title="Good Morning" text="Mina" type="topnav"/>
-                        <Text>{route.name}</Text>
+                        {/* <Text>{currentScreen}</Text> */}
                     </View>
                 ),
                 headerRight: () => (
@@ -39,10 +50,13 @@ function DrawerNavigator() {
                 },
                 // headerShown:false,
                 // headerShown: route.name === 'transferScreen',
-            })}
+            }}
         >
+            <Drawer.Screen name="bottomNav">
+                {props => <BottomTabNavigator {...props} onTabChange={handleScreenChange} />}
+            </Drawer.Screen>
             {/* <Drawer.Screen name="homeStack" component={HomeStack} /> */}
-            <Drawer.Screen name="bottomNav" component={BottomTabNavigator} />
+            {/* <Drawer.Screen name="bottomNav" component={BottomTabNavigator} /> */}
             {/* <Drawer.Screen name="transferScreen" component={TransferScreen} options={{ headerShown:false }}/> */}
             {/* <Drawer.Screen name="transferScreen" component={TransferScreen} options={{headerStyle: {display:'none'},headerShown:false}}/> */}
             {/* <Drawer.Screen name="airpay" component={AirPay} options={{headerShown:true}}/> */}

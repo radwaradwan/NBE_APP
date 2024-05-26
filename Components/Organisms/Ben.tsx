@@ -174,11 +174,10 @@ function Ben () {
                         onPress={() => setIsGrid(false)}
                     />
                     </View>
-                    <TouchableOpacity style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.buttonContainer} onPress={()=> navigation.navigate('AddBen')}>
                         <GridListButton
                                 path={require('../../Assets/images/plus.png')}
                                 type="add"
-                                onPress={()=> navigation.navigate('AddBen')}
                         />
                         <Text style={styles.addText}>Add</Text>
                     </TouchableOpacity>

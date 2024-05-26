@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 
-import React from 'react';
+import React, { useEffect ,useState} from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet, Text, View } from 'react-native'; // Consolidated imports
 import Map from '../Screens/Map';
@@ -11,6 +11,7 @@ import AirPay from '../Screens/AirPay';
 // import Ben from '../Organisms/Ben';
 import BenScreen from '../Screens/BenScreen';
 import HomeStack from '../Screens/HomeStack';
+import { useNavigation } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
@@ -23,7 +24,38 @@ const screenOptions = {
     },
 };
 
-const BottomTabNavigator = () => {
+type BottomTabNavigatorProps = {
+    onTabChange?: (screenName: string | undefined) => void | undefined;
+};
+
+
+const BottomTabNavigator = (props:BottomTabNavigatorProps) => {
+    const {onTabChange} = props;
+    const [routeName,setRouteName] = useState<string | undefined>('');
+    const navigation = useNavigation();
+    useEffect(()=>{
+        const unsubscribe = navigation.addListener('state', () => {
+        // if there is paths in bottom nav (true or false)
+        const stackNavigatorState = navigation.getState()?.routes.find((route: { name: string; }) => route.name === 'bottomNav')?.state;
+        console.log('....',stackNavigatorState);
+        const currentRoute = stackNavigatorState?.routes.find(
+        (    route: { name: string; }) => route.name === 'benScreen',
+    )?.state;
+    console.log('.....................',currentRoute);
+    console.log('..........hello',currentRoute?.routes[2]);
+    console.log('..........helloaaaaaaaaaaaaa',currentRoute?.routeNames?.at(2));
+    console.log('benscreeeeeeeeeeeeeeeen',stackNavigatorState?.routes[2].name);
+
+    if (stackNavigatorState?.routes[2].name === 'benScreen' && currentRoute?.routeNames?.at(2) === 'AddBen')
+    {
+        setRouteName(currentRoute?.routeNames?.at(2));
+    }
+    });
+return unsubscribe;
+});
+
+
+
     return (
         <Tab.Navigator screenOptions={screenOptions}>
             <Tab.Screen
@@ -40,6 +72,9 @@ const BottomTabNavigator = () => {
                         </View>
                     ),
                 }}
+                listeners={({ route }) => ({
+                    focus: () => onTabChange && onTabChange(route.name),
+                })}
             />
             <Tab.Screen
                 name="transferScreen"
@@ -55,6 +90,9 @@ const BottomTabNavigator = () => {
                         </View>
                     ),
                 }}
+                listeners={({ route }) => ({
+                    focus: () => onTabChange && onTabChange(route.name),
+                })}
             />
             <Tab.Screen
                 name="benScreen"
@@ -70,6 +108,9 @@ const BottomTabNavigator = () => {
                         </View>
                     ),
                 }}
+                listeners={({ route }) => ({
+                    focus: () => routeName === ' ' && onTabChange ? onTabChange(route.name) : onTabChange!(routeName),
+                })}
             />
             <Tab.Screen
                 name="map"
@@ -85,6 +126,9 @@ const BottomTabNavigator = () => {
                         </View>
                     ),
                 }}
+                listeners={({ route }) => ({
+                    focus: () => onTabChange && onTabChange(route.name),
+                })}
             />
             <Tab.Screen
                 name="airpay"
@@ -100,6 +144,9 @@ const BottomTabNavigator = () => {
                         </View>
                     ),
                 }}
+                listeners={({ route }) => ({
+                    focus: () => onTabChange && onTabChange(route.name),
+                })}
             />
         </Tab.Navigator>
     );
