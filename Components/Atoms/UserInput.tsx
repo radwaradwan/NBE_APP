@@ -5,10 +5,12 @@ type Props={
     placeholder:string,
     title:string,
     path:any,
-    type:string
+    type:string,
+    onChangeText: (text: string) => void,
+    value: string,
 };
 function UserInput(props: Props){
-    const {placeholder,title,path,type} = props;
+    const {placeholder,title,path,type,onChangeText,value} = props;
     const [isPasswordVisible,setIsPasswordVisible] = useState(false);
     // toggle password visibility
     const togglePasswordVisibility = ()=>{
@@ -22,9 +24,12 @@ function UserInput(props: Props){
             <View>
                 <Text style={styles.text}>{title}</Text>
                 <View style={styles.inputIconContainer}>
-                    <TextInput style={styles.placeholder} placeholder={placeholder} placeholderTextColor="#fff" secureTextEntry={type === 'password' && !isPasswordVisible}/>
+                    <TextInput style={styles.placeholder} placeholder={placeholder}
+                    placeholderTextColor="#fff" secureTextEntry={type === 'password' && !isPasswordVisible}
+                    onChangeText={onChangeText}
+                    value={value}/>
                     {type === 'password' && (
-                        <Pressable onPress={togglePasswordVisibility}>
+                        <Pressable onPress={togglePasswordVisibility} style={styles.icon}>
                             <Image
                                 source={isPasswordVisible ? require('../../Assets/images/eye.png') : require('../../Assets/images/eye_close.png')}
                                 style={styles.eyeIcon}
@@ -68,15 +73,19 @@ const styles = StyleSheet.create({
         paddingLeft:-1,
     },
     inputIconContainer:{
+        // flex:1,
         flexDirection:'row',
         alignItems:'center',
-        flex:1,
+        // justifyContent:'space-between',
+    },
+    icon:{
+        marginLeft:180,
     },
     eyeIcon:{
         width: 20,
         height: 20,
         tintColor: '#fff',
-        // marginRight: 10,
+        marginBottom: 10,
     },
 });
 export default UserInput;
