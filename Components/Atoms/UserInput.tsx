@@ -29,7 +29,7 @@ function UserInput(props: Props){
                     onChangeText={onChangeText}
                     value={value}/>
                     {type === 'password' && (
-                        <Pressable onPress={togglePasswordVisibility} style={styles.icon}>
+                        <Pressable onPress={togglePasswordVisibility} >
                             <Image
                                 source={isPasswordVisible ? require('../../Assets/images/eye.png') : require('../../Assets/images/eye_close.png')}
                                 style={styles.eyeIcon}
@@ -64,22 +64,19 @@ const styles = StyleSheet.create({
     text:{
         color:'#fff',
         fontSize:18,
-        // paddingStart:20,
-        // marginTop:1,
+
     },
     placeholder:{
         color:'#fff',
         paddingTop:0,
         paddingLeft:-1,
+        width:250,
     },
     inputIconContainer:{
         // flex:1,
         flexDirection:'row',
         alignItems:'center',
         // justifyContent:'space-between',
-    },
-    icon:{
-        marginLeft:180,
     },
     eyeIcon:{
         width: 20,

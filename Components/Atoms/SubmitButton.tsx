@@ -6,6 +6,7 @@ type Props = {
     onPress: () => void;
     iconRight?:any,
     type?:string,
+    disabled?:boolean,
 };
 
 // function pressHandler() {
@@ -13,10 +14,13 @@ type Props = {
 // }
 
 function SubmitButton(props: Props) {
-    const {title,onPress,iconRight,type} = props;
+    const {title,onPress,iconRight,type,disabled} = props;
     return (
-        <View style={styles.buttonOuterContaier}>
-            <Pressable style={styles.buttonInnerContainer} onPress={onPress} android_ripple={{color:'#07984C'}} >
+        <View style={[
+            styles.buttonOuterContaier,
+            disabled ? styles.buttonDisabled : styles.buttonEnabled]}>
+            <Pressable style={styles.buttonInnerContainer} onPress={disabled ? undefined : onPress}
+            android_ripple={{ color: disabled ?  'transparent' : '#07984C' }} >
                 <Text style={type === 'airpay' ? styles.buttonTextIcon : styles.buttonText}>{title}</Text>
                 {iconRight && <View style={styles.fingerPrintContainer}>
                     <Image source={iconRight}/>
@@ -36,11 +40,17 @@ const styles = StyleSheet.create({
         // width:270,
     },
     buttonInnerContainer:{
-        backgroundColor: '#007236',
+        // backgroundColor: '#007236',
         padding:14,
         flexDirection:'row',
         alignItems:'center',
         // justifyContent:'center',
+    },
+    buttonEnabled: {
+        backgroundColor: '#007236',
+    },
+    buttonDisabled: {
+        backgroundColor: 'gray',
     },
     buttonText:{
         flex:1,

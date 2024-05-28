@@ -5,30 +5,16 @@ type Props={
     placeholder?:string,
     title:string,
     path?:any,
-    type?:string
+    type?:string,
+    value?:string,
+    onChangeText?: (text: string) => void,
 };
 
 function SignUpInputs(props: Props){
-    const {placeholder,title,path,type} = props;
+    const {placeholder,title,path,type,value,onChangeText} = props;
     const [isPasswordVisible,setIsPasswordVisible] = useState(false);
-    const [phoneNumber, setPhoneNumber] = useState('+2');
     const [isFocused, setIsFocused] = useState(false);
 
-// Handle phone number change
-    const handlePhoneNumberChange = (input: string) => {
-        // Check if input is empty
-        if (input === '' || input === '+') {
-            // If input is empty, maintain the '+2' prefix
-            setPhoneNumber('+2');
-        }
-        else {
-            // Ensure the numeric value is not longer than 11 characters (13 total characters including '+2')
-            const formattedValue = input.substring(0, 13);
-            // Update the phone number state with the '+2' prefix and the formatted numeric value
-            setPhoneNumber( formattedValue);
-        }
-    };
-    // toggle password visibility
     const togglePasswordVisibility = ()=>{
         setIsPasswordVisible(prevState => !prevState);
     };
@@ -52,11 +38,13 @@ function SignUpInputs(props: Props){
                         placeholderTextColor="gray"
                         secureTextEntry={type === 'password' && !isPasswordVisible}
                         keyboardType={type === 'phone number' || type === 'transfer' ? 'phone-pad' : 'default'}
-                        value={type === 'phone number' ? phoneNumber : undefined}
-                        onChangeText={type === 'phone number' ? handlePhoneNumberChange : undefined}
+                        // value={type === 'phone number' ? phoneNumber : undefined}
+                        value={value}
+                        // onChangeText={type === 'phone number' ? handlePhoneNumberChange : undefined}
+                        onChangeText={onChangeText}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setIsFocused(false)}
-                        // maxLength={type === 'phone number' ? 13 : 28}
+                        maxLength={type === 'phone number' ? 11 : 28}
                         />
                         {type === 'password' && (
                             <Pressable onPress={togglePasswordVisibility}>
@@ -125,6 +113,7 @@ const styles = StyleSheet.create({
         color:'#000',
         paddingTop:0,
         paddingLeft:-1,
+        width:250,
     },
     placeholderwithoutIcon:{
         color:'#000',
@@ -134,8 +123,6 @@ const styles = StyleSheet.create({
     inputIconContainer:{
         flexDirection:'row',
         alignItems:'center',
-        justifyContent:'space-between',
-        // flex:1,
     },
     eyeIcon:{
         width: 20,

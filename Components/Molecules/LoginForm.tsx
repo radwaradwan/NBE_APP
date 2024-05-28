@@ -41,6 +41,8 @@ function LoginForm(props:Props) {
     const handleSubmit = () => {
         setIsSubmitted(true);
         if (validateInputs()) {
+            setUsername('');
+            setPassword('');
             navigation.navigate('Drawer');
         } else {
             // Alert.alert('Validation Error', 'Please fill out all fields correctly.');
