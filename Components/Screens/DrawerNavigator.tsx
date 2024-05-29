@@ -34,7 +34,7 @@ function DrawerNavigator() {
                 headerShown: !isHeaderHidden,
                 headerTitle: () => (
                     <View style={styles.header}>
-                        <TopNav title="Good Morning" text="Mina" type="topnav"/>
+                        <TopNav type="topnav"/>
                         {/* <Text>{currentScreen}</Text> */}
                     </View>
                 ),
@@ -61,32 +61,7 @@ function DrawerNavigator() {
             <Drawer.Screen name="bottomNav">
                 {props => <BottomTabNavigator {...props} onTabChange={handleScreenChange} />}
             </Drawer.Screen>
-            {/* <Drawer.Screen name="homeStack" component={HomeStack} /> */}
-            {/* <Drawer.Screen name="bottomNav" component={BottomTabNavigator} /> */}
-            {/* <Drawer.Screen name="transferScreen" component={TransferScreen} options={{ headerShown:false }}/> */}
-            {/* <Drawer.Screen name="transferScreen" component={TransferScreen} options={{headerStyle: {display:'none'},headerShown:false}}/> */}
-            {/* <Drawer.Screen name="airpay" component={AirPay} options={{headerShown:true}}/> */}
-            {/* <Drawer.Screen
-                name="transferScreen"
-                component={TransferScreen}
-                options={{
-                    drawerLabel: () => null, // Hide from the drawer menu
-                }}
-            />
-            <Drawer.Screen
-                name="addBen"
-                component={AddBen}
-                options={{
-                    drawerLabel: () => null, // Hide from the drawer menu
-                }}
-            /> */}
 
-{/* <Drawer.Screen
-        name="transferScreen"
-        component={TransferScreen}
-        options={{
-            headerTitle:()=> (<SignUpNav/>),
-        }}/> */}
         </Drawer.Navigator>
     );
 }

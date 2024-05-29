@@ -7,6 +7,7 @@ import SubmitButton from '../Atoms/SubmitButton';
 import SignUpNav from '../Molecules/SignUpNav';
 import SignUpText from '../Atoms/SignUpText';
 import { theme } from '../theme/theme';
+import { setPhoneNumber,getPhoneNumber } from '../Storage/mmkv';
 
 type Props = {
     navigation: any,
@@ -22,9 +23,8 @@ function SignUpMobileScreen(props: Props) {
     const { navigation } = props;
 
     const navigateToSignUpOtpScreen = () => {
-        console.log('hello1');
         navigation.navigate('otp');
-        console.log('hello2');
+        console.log(getPhoneNumber());
     };
     return (
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -48,6 +48,7 @@ function SignUpMobileScreen(props: Props) {
                                 // onBlur={handleBlur('phoneNumber')}
                                 value={values.phoneNumber}
                             />
+                            {setPhoneNumber(values.phoneNumber)}
                             {touched.phoneNumber && errors.phoneNumber && <Text style={styles.errorText}>{errors.phoneNumber}</Text>}
                         </View>
                         <View style={styles.innerContainer}>

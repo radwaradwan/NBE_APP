@@ -20,6 +20,7 @@ type Props = {
 };
 
 function CustomDrawerContent(props: Props) {
+    const {navigation} = props;
     const [isDarkMode, setIsDarkMode] = useState(theme);
 
     const setSelectedTheme = () => {
@@ -69,10 +70,9 @@ function CustomDrawerContent(props: Props) {
                 </View>
             </View>
             <View style={styles.footer}>
-                {/* <Text style={styles.footerText}>hello</Text> */}
-                <DrawerItem label="Log Out" icon={() => <Icon path={require('../../Assets/images/logout.png')} backgroundColor="#fed6da"/>} onPress={() => {}} labelStyle={styles.footerText}  />
+                <DrawerItem label="Log Out" icon={() => <Icon path={require('../../Assets/images/logout.png')} backgroundColor="#fed6da"/>} onPress={() => {navigation.navigate('login');}} labelStyle={styles.footerText}  />
                 <View style={styles.innerFooter}>
-                    <TopNav title="Mina" text="+20 101 131 5412" type="menu"/>
+                    <TopNav type="menu"/>
                     <Image source={require('../../Assets/images/dots.png')}/>
                 </View>
             </View>

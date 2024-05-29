@@ -1,14 +1,13 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { theme } from '../theme/theme';
+import { getUsername , getPhoneNumber} from '../Storage/mmkv';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 type Props = {
-    title:string,
-    text:string,
     type:string,
 };
 function TopNav(props:Props) {
-    const {title,text,type} = props;
+    const {type} = props;
     return (
         <View style={styles.outerContainer}>
             <View style={styles.innerContainer}>
@@ -22,8 +21,8 @@ function TopNav(props:Props) {
                         <Image source={require('../../Assets/images/man.png')}/>
                     </View>
                     <View style={styles.nameContainer}>
-                        <Text style={type === 'menu' ? styles.name : styles.GM}>{title}</Text>
-                        <Text style={type === 'menu' ? styles.GM : styles.name}>{text}</Text>
+                        {type === 'menu' ? (<Text style={styles.name}>{getUsername()}</Text>) : (<Text style={styles.GM}>Good Morning</Text>)}
+                        {type === 'menu' ? (<Text style={styles.GM}>{getPhoneNumber()}</Text>) : (<Text style={styles.name}>{getUsername()}</Text>)}
                     </View>
                 </View>
             </View>

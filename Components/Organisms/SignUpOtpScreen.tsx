@@ -6,21 +6,20 @@ import OTP from '../Atoms/OTP';
 import OTPTimer from '../Atoms/OTPTimer';
 import SubmitButton from '../Atoms/SubmitButton';
 import { theme } from '../theme/theme';
+import { getPhoneNumber } from '../Storage/mmkv';
 type Props ={
     navigation :any,
 };
 function SignUpOtpScreen(props:Props){
     const {navigation} = props;
     const navigateToSignUpPasswordScreen = () => {
-        console.log('hello1');
         navigation.navigate('signupPassword'); // Navigate to 'otp' screen
-        console.log('hello2');
     };
     return(
         <KeyboardAvoidingView style={styles.outerContainer} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
             <View style={styles.innerContainer}>
                 <SignUpNav screenName="signupMobile" navigation={navigation}/>
-                <SignUpText text1="Verification" text2="Enter 5 digit code we sent to +20 101 131 5412"/>
+                <SignUpText text1="Verification" text2={`Enter 5 digit code we sent to +2 ${getPhoneNumber()}`}/>
                 <OTP/>
                 <Text style={styles.recieveCode}>Didn&#39;t receive the code?</Text>
                 <OTPTimer/>

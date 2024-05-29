@@ -4,6 +4,8 @@ import SubmitButton from '../Atoms/SubmitButton';
 import FingerPrint from '../Atoms/FingerPrint';
 import UserInput from '../Atoms/UserInput';
 import RememberMeRow from './RememberMeRow';
+import { setUserName } from '../Storage/mmkv';
+
 type Props ={
     navigation :any;
 };
@@ -43,6 +45,7 @@ function LoginForm(props:Props) {
         if (validateInputs()) {
             setUsername('');
             setPassword('');
+            setUserName(username);
             navigation.navigate('Drawer');
         } else {
             // Alert.alert('Validation Error', 'Please fill out all fields correctly.');

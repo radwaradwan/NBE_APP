@@ -34,7 +34,6 @@ function SplashScreen(props:Props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: '#F1F3FB',
         backgroundColor:theme.BackgroundScreen,
     },
     logo: {
