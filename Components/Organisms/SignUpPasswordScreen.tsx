@@ -7,6 +7,7 @@ import SignUpText from '../Atoms/SignUpText';
 import SignUpInputs from '../Atoms/SignUpInputs';
 import SubmitButton from '../Atoms/SubmitButton';
 import PasswordValidation from '../Atoms/PasswordValidation';
+import { theme } from '../theme/theme';
 
 type Props = {
     navigation: any,
@@ -92,7 +93,8 @@ function SignUpPasswordScreen(props: Props) {
 
 const styles = StyleSheet.create({
     outerContainer: {
-        backgroundColor: '#F1F3FB',
+        // backgroundColor: '#F1F3FB',
+        backgroundColor:theme.BackgroundScreen,
         justifyContent: 'space-between',
         height: '100%',
     },

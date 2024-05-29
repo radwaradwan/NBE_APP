@@ -46,15 +46,15 @@ function ModalApp(props:Props) {
     const navigateToAirPayScreen = () => {
         console.log('hello1');
         setModalVisible(!modalVisible);
-        navigation.navigate('airPay'); // Navigate to 'otp' screen
+        navigation.navigate('airpay'); // Navigate to 'otp' screen
         console.log('hello2');
     };
-    const navigateToHomeScreen = () => {
-        console.log('hello1');
-        setModalVisible(!modalVisible);
-        navigation.navigate('home'); // Navigate to 'otp' screen
-        console.log('hello2');
-    };
+    // const navigateToHomeScreen = () => {
+    //     console.log('hello1');
+    //     setModalVisible(!modalVisible);
+    //     navigation.navigate('home'); // Navigate to 'otp' screen
+    //     console.log('hello2');
+    // };
 
     // const closeModal = () => {
     //     setModalVisible(false);
@@ -74,7 +74,7 @@ function ModalApp(props:Props) {
             <View>
                     {screenName === 'transfer' && <SubmitButton title="Finish" onPress={navigateToTransferScreen}/>}
                     {screenName === 'airpay' && confirmButtonText && <SubmitButton title="Done"
-                        onPress={navigateToHomeScreen}/>}
+                        onPress={navigateToAirPayScreen}/>}
                     <View style={styles.cancelContainer}>
                         {screenName === 'airpay' && cancelButtonText && <Pressable
                             onPress={navigateToAirPayScreen} style={styles.cancelButton}>
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     money: {
         fontSize: 30,
         fontWeight: 'bold',
-        color:'#000',
+        color:theme.textColor,
     },
     cancelContainer:{
         flexDirection:'row',

@@ -41,7 +41,7 @@ export default {
   IconHistoryBackground: ImperialRed,
 
   //Top &bottom navigation
-  BackgroundNav: Ghostwhite,
+  BackgroundNav: bottomTabColor,
 
   //drawer
   BackgroundMenu: Ghostwhite,

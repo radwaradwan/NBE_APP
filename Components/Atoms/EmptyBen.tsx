@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import GridListButton from './GridListButton';
+import { theme } from '../theme/theme';
 type Props = {
 path:any,
 title:string,
@@ -45,12 +46,12 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     noBen:{
-        color:'#000',
+        color:theme.textColor,
         fontWeight:'bold',
         fontSize:18,
     },
     emptyDetails:{
-        color:'#000',
+        color:theme.textColor,
     },
     addText:{
         color:'white',

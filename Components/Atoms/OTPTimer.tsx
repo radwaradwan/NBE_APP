@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { theme } from '../theme/theme';
 
 function OTPTimer() {
     const [timer, setTimer] = useState<number>(60); // Timer in seconds
@@ -45,7 +46,8 @@ const styles = StyleSheet.create({
         fontSize:16,
     },
     disabled:{
-        color:'#000',
+        // color:'#000',
+        color:theme.textColor,
         fontWeight:'bold',
         fontSize:16,
     },

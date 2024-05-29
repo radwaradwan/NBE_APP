@@ -107,7 +107,8 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: 'bold',
-        color: '#000',
+        // color: '#000',
+        color:theme.textColor,
         fontSize: 18,
         lineHeight: 18,
         marginLeft:-20,
@@ -140,7 +141,8 @@ const styles = StyleSheet.create({
     innerFooter:{
         margin:16,
         marginTop:0,
-        backgroundColor:'white',
+        // backgroundColor:'white',
+        backgroundColor:theme.BackgroundNav,
         borderRadius:18,
         paddingStart:15,
         paddingVertical:20,

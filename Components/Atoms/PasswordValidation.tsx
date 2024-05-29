@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import { theme } from '../theme/theme';
 type Props={
     text:string,
     isValid: boolean,
@@ -32,7 +33,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'green',
     },
     text:{
-        color:'#000',
+        // color:'#000',
+        color:theme.textColor,
         fontSize:16,
     },
 });

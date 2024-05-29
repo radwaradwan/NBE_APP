@@ -48,7 +48,7 @@ function DrawerNavigator() {
                     backgroundColor:theme.BackgroundScreen,
                 },
                 drawerStyle: {
-                    backgroundColor: '#F1F3FB',
+                    backgroundColor:theme.BackgroundScreen,
                     borderTopEndRadius:40,
                     borderBottomEndRadius:40,
                     width:330,

@@ -6,6 +6,7 @@ import SignUpInputs from '../Atoms/SignUpInputs';
 import SubmitButton from '../Atoms/SubmitButton';
 import SignUpNav from '../Molecules/SignUpNav';
 import SignUpText from '../Atoms/SignUpText';
+import { theme } from '../theme/theme';
 
 type Props = {
     navigation: any,
@@ -65,7 +66,7 @@ function SignUpMobileScreen(props: Props) {
 
 const styles = StyleSheet.create({
     outerContainer: {
-        backgroundColor: '#F1F3FB',
+        backgroundColor: theme.BackgroundScreen,
         justifyContent: 'space-between',
         height: '100%',
     },

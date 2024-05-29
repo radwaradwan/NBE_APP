@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet, StatusBar } from 'react-native';
+import { theme } from '../theme/theme';
 type Props = {
     navigation:any,
 };
@@ -33,10 +34,8 @@ function SplashScreen(props:Props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        backgroundColor: '#F1F3FB',
-        // justifyContent: 'space-around',// Replace with your desired background color
+        // backgroundColor: '#F1F3FB',
+        backgroundColor:theme.BackgroundScreen,
     },
     logo: {
         flex:1,

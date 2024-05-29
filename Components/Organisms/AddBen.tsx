@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
         width: 138,
         height: 138,
         borderRadius: 30,
-        backgroundColor: '#fff',
+        backgroundColor: theme.BackgroundNav,
         justifyContent: 'center',
         alignItems: 'center',
     },

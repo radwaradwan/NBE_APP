@@ -3,6 +3,7 @@ import {ImageBackground, StyleSheet, Text, View,StatusBar} from 'react-native';
 import Logo from '../Atoms/Logo';
 import TextLogo from '../Atoms/TextLogo';
 import FinishButton from '../Atoms/FinishButton';
+
 type Props ={
     navigation :any,
 };
