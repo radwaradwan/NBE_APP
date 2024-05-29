@@ -1,12 +1,16 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useState } from 'react';
+// import React from 'react';
 import { View, StyleSheet, Image, Text, Switch } from 'react-native';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import TextLogo from '../Atoms/TextLogo';
 import ArabicIcon from '../Atoms/ArabicIcon';
 import TopNav from '../Molecules/TopNav';
 import Icon from '../Atoms/Icon';
+import {theme} from '../theme/theme';
+import { GetTheme } from '../theme/themes';
+import { setTheme } from '../Storage/mmkv';
 
 type Props = {
     navigation: any,
@@ -15,10 +19,12 @@ type Props = {
 };
 
 function CustomDrawerContent(props: Props) {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(theme);
 
     const toggleDarkMode = () => {
-        setIsDarkMode(previousState => !previousState);
+        const newTheme = isDarkMode.name === 'Dark' ? 'Light' : 'Dark';
+        setIsDarkMode(GetTheme(newTheme));
+        setTheme(newTheme);
     };
 
     return (
@@ -48,7 +54,7 @@ function CustomDrawerContent(props: Props) {
                             <Text style={[styles.text,{marginLeft:13}]}>Dark Mode</Text>
                         </View>
                         <Switch
-                            value={isDarkMode}
+                            value={isDarkMode.name === 'Dark'}
                             onValueChange={toggleDarkMode}
                         />
                     </View>

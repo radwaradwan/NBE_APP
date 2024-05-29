@@ -6,6 +6,7 @@ import SettingsRow from '../Molecules/SettingsRow';
 import SendMoney from '../Molecules/SendMoney';
 import History from '../Molecules/History';
 // import BottomTabNavigator from '../Molecules/BottomTabNav';
+import { theme } from '../theme/theme';
 type Props = {
     navigation:any,
 };
@@ -30,7 +31,8 @@ const styles = StyleSheet.create({
 container:{
     padding:10,
     // backgroundColor:'#F5F5F5',
-    backgroundColor:'#F1F3FB',
+    // backgroundColor:'#F1F3FB',
+    backgroundColor: theme.BackgroundScreen,
 },
 historyContainer:{
 height:200,
