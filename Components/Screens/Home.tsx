@@ -1,20 +1,21 @@
 import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
-// import TopNav from '../Molecules/TopNav';
 import BalanceCard from '../Atoms/BalanceCard';
 import SettingsRow from '../Molecules/SettingsRow';
 import SendMoney from '../Molecules/SendMoney';
 import History from '../Molecules/History';
-// import BottomTabNavigator from '../Molecules/BottomTabNav';
 import { theme } from '../theme/theme';
+import { getTheme } from '../Storage/mmkv';
 type Props = {
     navigation:any,
 };
 function Home(props:Props){
     const {navigation} = props;
+    const currentTheme = getTheme(); // Get the current theme
+    const isDarkTheme = currentTheme === 'Dark';
     return(
         <View style={styles.container}>
-            <StatusBar translucent backgroundColor="transparent" barStyle="dark-content"/>
+            <StatusBar translucent backgroundColor="transparent" barStyle={isDarkTheme ? 'light-content' : 'dark-content'}/>
             {/* <TopNav/> */}
             <BalanceCard navigation={navigation}/>
             <SettingsRow/>

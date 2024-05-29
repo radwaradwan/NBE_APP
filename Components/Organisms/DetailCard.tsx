@@ -4,6 +4,7 @@ import { RouteProp } from '@react-navigation/native';
 import { BenStackParamList } from '../Types/types';
 import HistoryRow from '../Atoms/HistoryRow';
 import EmptyBen from '../Atoms/EmptyBen';
+import { theme } from '../theme/theme';
 
 interface HistoryItem {
     title: string;
@@ -45,7 +46,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-        backgroundColor:'#F1F3FB',
+        // backgroundColor:'#F1F3FB',
+        backgroundColor:theme.BackgroundScreen,
     },
     historyTitle: {
         fontSize: 20,

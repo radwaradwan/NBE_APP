@@ -6,6 +6,7 @@ import OTP from '../Atoms/OTP';
 import OTPTimer from '../Atoms/OTPTimer';
 import SubmitButton from '../Atoms/SubmitButton';
 // import ModalComponent from '../Atoms/ModalComponent';
+import { theme } from '../theme/theme';
 import ModalApp from '../Atoms/ModalApp';
 type Props ={
     navigation :any,
@@ -26,7 +27,7 @@ function TransferOtpScreen(props:Props){
                 <SignUpNav screenName="transfer" navigation={navigation}/>
                 <SignUpText text1="OTP" text2="Enter 5 digit code we sent to +20 101 131 5412"/>
                 <OTP/>
-                <Text>Didn&#39;t receive the code?</Text>
+                <Text style={styles.receiveCode}>Didn&#39;t receive the code?</Text>
                 <OTPTimer/>
             </View>
             <View style={styles.innerContainer}>
@@ -51,12 +52,16 @@ function TransferOtpScreen(props:Props){
 const styles = StyleSheet.create({
     outerContainer:{
         padding:10,
-        backgroundColor:'#F1F3FB',
+        // backgroundColor:'#F1F3FB',
+        backgroundColor:theme.BackgroundScreen,
         justifyContent:'space-between',
         height:'100%',
     },
     innerContainer:{
         margin:20,
+    },
+    receiveCode:{
+        color:theme.textColorGrey,
     },
 });
 export default TransferOtpScreen;

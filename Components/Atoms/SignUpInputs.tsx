@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { TextInput,View , Text, StyleSheet, Image, Pressable} from 'react-native';
-
+import { theme } from '../theme/theme';
 type Props={
     placeholder?:string,
     title:string,
@@ -66,7 +66,7 @@ function SignUpInputs(props: Props){
 const styles = StyleSheet.create({
     inputContainer:{
         flexDirection: 'row',
-        backgroundColor: '#fff',
+        backgroundColor: theme.BackgroundNav,
         borderRadius:10,
         height:65,
         borderColor: 'transparent',
@@ -87,20 +87,20 @@ const styles = StyleSheet.create({
     },
     dollar:{
         fontSize: 16,
-        color:'#000',
+        color:theme.textColor,
         marginRight:-20,
         marginLeft:20,
         marginTop:2,
     },
     text:{
-        color:'#000',
+        color:theme.textColor,
         fontWeight:'bold',
         fontSize:14,
         // paddingHorizontal:16,
     },
     boldText:{
         fontWeight:'bold',
-        color:'#000',
+        color:theme.textColor,
         fontSize:14,
         paddingHorizontal:22,
     },
@@ -110,13 +110,14 @@ const styles = StyleSheet.create({
         // paddingHorizontal:20,
     },
     placeholder:{
-        color:'#000',
+        // color:'#000',
+        color:theme.textColor,
         paddingTop:0,
         paddingLeft:-1,
         width:250,
     },
     placeholderwithoutIcon:{
-        color:'#000',
+        color:theme.textColor,
         paddingTop:0,
         paddingLeft:20,
     },

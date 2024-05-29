@@ -2,6 +2,7 @@ import React from 'react';
 import {ScrollView, Text,StyleSheet} from 'react-native';
 import HistoryRow from '../Atoms/HistoryRow';
 import { View } from 'react-native';
+import { theme } from '../theme/theme';
 function History() {
     const car = require('../../Assets/images/carrefour.png');
     const amazon = require('../../Assets/images/amazon.png');
@@ -36,7 +37,8 @@ const styles = StyleSheet.create({
         // height:200,
     },
     text:{
-        color:'#000',
+        // color:'#000',
+        color:theme.textColor,
         fontSize:19,
         fontWeight:'bold',
         marginBottom:5,

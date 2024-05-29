@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { theme } from '../theme/theme';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 type Props = {
     title:string,
@@ -55,7 +56,8 @@ nameContainer:{
 marginStart:10,
 },
 GM:{
-color:'#000',
+// color:'#000',
+color:theme.textColor,
 },
 // textContainer:{
 // justifyContent:'center',
@@ -63,7 +65,8 @@ color:'#000',
 name:{
     fontWeight:'bold',
     fontSize:15,
-    color:'#000',
+    // color:'#000',
+    color:theme.textColor,
 },
 });
 export default TopNav;

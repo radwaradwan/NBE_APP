@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { theme } from '../theme/theme';
 type Props ={
     color:string,
     path:any,
@@ -27,7 +28,8 @@ justifyContent:'center',
 },
 text:{
     textAlign:'center',
-    color:'#000',
+    // color:'#000',
+    color:theme.textColor,
 },
 });
 export default Settings;

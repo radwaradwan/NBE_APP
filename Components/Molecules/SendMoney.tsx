@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 // import Settings from '../Atoms/Settings';
+import { theme } from '../theme/theme';
 import SendMoneyCard from '../Atoms/SendMoneyCard';
 function SendMoney() {
     const person1 = require('../../Assets/images/person1.png');
@@ -30,7 +31,8 @@ container:{
     marginBottom:20,
 },
 text:{
-    color:'#000',
+    // color:'#000',
+    color:theme.textColor,
     fontSize:19,
     fontWeight:'bold',
     marginBottom:5,

@@ -6,6 +6,7 @@ import SubmitButton from '../Atoms/SubmitButton';
 import SignUpNav from '../Molecules/SignUpNav';
 import DropdownMenu from '../Atoms/DropdownMenu';
 import SignUpInputs from '../Atoms/SignUpInputs';
+import { theme } from '../theme/theme';
 
 const typeofTransfer = [
     { label: 'Between your accounts', value: '1' },
@@ -113,7 +114,8 @@ function Transfer(props: TransferProps) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F1F3FB',
+        // backgroundColor: '#F1F3FB',
+        backgroundColor: theme.BackgroundScreen,
         justifyContent: 'space-between',
     },
     innerContainer: {

@@ -12,6 +12,7 @@ import AirPay from '../Screens/AirPay';
 import BenScreen from '../Screens/BenScreen';
 import HomeStack from '../Screens/HomeStack';
 import { useNavigation } from '@react-navigation/native';
+import { theme } from '../theme/theme';
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
@@ -22,6 +23,7 @@ const screenOptions = {
         borderTopEndRadius: 20,
         borderTopStartRadius: 20,
     },
+    tabBarItemStyle: {backgroundColor: theme.BottomTab},
 };
 
 type BottomTabNavigatorProps = {
@@ -49,6 +51,9 @@ const BottomTabNavigator = (props:BottomTabNavigatorProps) => {
     if (stackNavigatorState?.routes[2].name === 'benScreen' && currentRoute?.routeNames?.at(2) === 'AddBen')
     {
         setRouteName(currentRoute?.routeNames?.at(2));
+    }
+    else{
+        setRouteName(stackNavigatorState?.routes[2].name);
     }
     });
 return unsubscribe;

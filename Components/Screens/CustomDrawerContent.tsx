@@ -8,6 +8,7 @@ import TextLogo from '../Atoms/TextLogo';
 import ArabicIcon from '../Atoms/ArabicIcon';
 import TopNav from '../Molecules/TopNav';
 import Icon from '../Atoms/Icon';
+import RNRestart from 'react-native-restart';
 import {theme} from '../theme/theme';
 import { GetTheme } from '../theme/themes';
 import { setTheme } from '../Storage/mmkv';
@@ -20,6 +21,10 @@ type Props = {
 
 function CustomDrawerContent(props: Props) {
     const [isDarkMode, setIsDarkMode] = useState(theme);
+
+    const setSelectedTheme = () => {
+        RNRestart.restart();
+    };
 
     const toggleDarkMode = () => {
         const newTheme = isDarkMode.name === 'Dark' ? 'Light' : 'Dark';
@@ -55,7 +60,10 @@ function CustomDrawerContent(props: Props) {
                         </View>
                         <Switch
                             value={isDarkMode.name === 'Dark'}
-                            onValueChange={toggleDarkMode}
+                            onValueChange={() => {
+                                toggleDarkMode();
+                                setSelectedTheme();
+                            }}
                         />
                     </View>
                 </View>

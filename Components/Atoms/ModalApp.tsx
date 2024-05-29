@@ -4,6 +4,7 @@ import Modal from 'react-native-modal';
 // import Transfer from '../Screens/Transfer';
 import SubmitButton from './SubmitButton';
 // import TransferOtpScreen from '../Organisms/TransferOtpScreen';
+import { theme } from '../theme/theme';
 type Props ={
     navigation :any,
     modalVisible: boolean,
@@ -64,8 +65,8 @@ function ModalApp(props:Props) {
             <View style={styles.modalContent}>
                 <Image source={path}/>
                 <Text style={[styles.congratsText , screenName === 'airpay' && styles.cancel]}>{titleText}</Text>
-                <Text>{descriptionText}</Text>
-                <Text style={screenName === 'airpay' && styles.money}>{money}</Text>
+                <Text style={styles.description}>{descriptionText}</Text>
+                <Text style={[styles.descTransfer,screenName === 'airpay' && styles.money]}>{money}</Text>
                 {/* <TouchableOpacity style={styles.finishButton} onPress={closeModal}>
                     <Text style={styles.finishButtonText}>Finish</Text>
                 </TouchableOpacity> */}
@@ -104,21 +105,18 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
     },
-    submitButton: {
-        backgroundColor: 'blue',
-        padding: 15,
-        borderRadius: 10,
-    },
     submitButtonText: {
         color: 'white',
         fontSize: 16,
         fontWeight: 'bold',
     },
     modalOuterContent:{
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
+        backgroundColor:theme.BackgroundScreen,
         padding: 20,
         borderRadius: 15,
         borderColor: 'rgba(0, 0, 0, 0.1)',
+
     },
     modalContent: {
         justifyContent: 'center',
@@ -128,18 +126,13 @@ const styles = StyleSheet.create({
         // marginBottom: 20,
         fontSize: 24,
         fontWeight: 'bold',
-        color:'#000',
+        color:theme.textColor,
     },
-    finishButton: {
-        backgroundColor: 'blue',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,
+    description:{
+        color:theme.textColorGrey,
     },
-    finishButtonText: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 'bold',
+    descTransfer:{
+        color:theme.textColorGrey,
     },
     money: {
         fontSize: 30,

@@ -8,7 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import GridCardBen from '../Atoms/GridCardBen';
 import HistoryRow from '../Atoms/HistoryRow';
 import EmptyBen from '../Atoms/EmptyBen';
-
+import { theme } from '../theme/theme';
 interface MyObject {
     id:number;
     path:any;
@@ -206,7 +206,7 @@ function Ben () {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:'#F1F3FB',
+        backgroundColor:theme.BackgroundScreen,
         paddingHorizontal:12,
     },
     benRowContainer:{
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
         marginTop:20,
     },
     title:{
-        color:'#000',
+        color:theme.textColor,
         fontWeight:'bold',
         fontSize:20,
         // marginTop:-15,
@@ -229,6 +229,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems:'center',
         backgroundColor: 'white',
+        // backgroundColor:theme.BackgroundNav,
         padding: 3,
         borderRadius: 25,
         width:61,

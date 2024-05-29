@@ -5,6 +5,7 @@ import CustomDrawerContent from './CustomDrawerContent';
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import TopNav from '../Molecules/TopNav';
 import BottomTabNavigator from '../Molecules/BottomTabNav';
+import { theme } from '../theme/theme';
 // import TransferScreen from './TransferScreen';
 // import AddBen from '../Organisms/AddBen';
 // import HomeStack from './HomeStack';
@@ -16,11 +17,14 @@ function DrawerNavigator() {
     const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
     const handleScreenChange = (screenName: string | undefined) => {
+        console.log('screen',screenName);
         if (screenName === 'AddBen' || screenName === 'transferScreen') {
             setIsHeaderHidden(true);
+            console.log('123');
         } else {
             setIsHeaderHidden(false);
         }
+        console.log('header123',isHeaderHidden);
     };
 
     return (
@@ -40,7 +44,8 @@ function DrawerNavigator() {
                     </TouchableOpacity>
                 ),
                 headerStyle: {
-                    backgroundColor: '#F1F3FB',
+                    // backgroundColor: '#F1F3FB',
+                    backgroundColor:theme.BackgroundScreen,
                 },
                 drawerStyle: {
                     backgroundColor: '#F1F3FB',
@@ -48,6 +53,7 @@ function DrawerNavigator() {
                     borderBottomEndRadius:40,
                     width:330,
                 },
+                headerTintColor: theme.textColor,
                 // headerShown:false,
                 // headerShown: route.name === 'transferScreen',
             }}

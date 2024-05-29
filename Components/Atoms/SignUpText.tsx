@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-
+import { theme } from '../theme/theme';
 type Props = {
     text1:string,
     text2:string,
@@ -11,7 +11,7 @@ function SignUpText(props:Props) {
     return (
         <View style={styles.container}>
             <Text style={styles.text1}>{text1}</Text>
-            <Text>{text2}</Text>
+            <Text style={styles.text2}>{text2}</Text>
         </View>
     );
 }
@@ -22,9 +22,13 @@ const styles = StyleSheet.create({
     },
     text1:{
         fontWeight:'bold',
-        color:'#000',
+        // color:'#000',
+        color:theme.textColor,
         fontSize:20,
         marginBottom:2,
+    },
+    text2:{
+        color:theme.textColorGrey,
     },
 });
 export default SignUpText;

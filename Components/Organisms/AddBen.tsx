@@ -6,6 +6,7 @@ import SignUpNav from '../Molecules/SignUpNav';
 import SignUpInputs from '../Atoms/SignUpInputs';
 import DropdownMenu from '../Atoms/DropdownMenu';
 import SubmitButton from '../Atoms/SubmitButton';
+import { theme } from '../theme/theme';
 
 const bankBranch = [
     { label: '001 - Main Branch', value: '1' },
@@ -145,7 +146,8 @@ function AddBen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F1F3FB',
+        // backgroundColor: '#F1F3FB',
+        backgroundColor:theme.BackgroundScreen,
     },
     innerContainer: {
         marginHorizontal: 20,

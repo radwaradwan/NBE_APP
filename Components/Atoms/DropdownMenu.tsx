@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-
+import { theme } from '../theme/theme';
 type Option = {
     label: string,
     value: string,
@@ -51,14 +51,16 @@ const styles = StyleSheet.create({
         height: 270,
     },
     container: {
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
+        backgroundColor:theme.BackgroundNav,
         padding: 10,
         marginBottom: 10,
         borderRadius: 10,
     },
     text: {
         paddingHorizontal: 16,
-        color: '#000',
+        // color: '#000',
+        color:theme.textColor,
         fontWeight: 'bold',
     },
     pressedText: {
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
     menuContainer: {
         marginTop: 0,
         marginHorizontal: 0,
-        backgroundColor: '#fff',
+        backgroundColor:theme.BackgroundNav,
         borderRadius: 10,
         borderColor: '#007236',
         borderWidth: 2,
@@ -80,17 +82,17 @@ const styles = StyleSheet.create({
     placeholderStyle: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#000',
+        color: theme.textColor,
     },
     selectedTextStyle: {
         fontSize: 16,
-        color: '#000',
+        color: theme.textColor,
     },
     iconStyle: {
         width: 30,
         height: 30,
     },
     itemText: {
-        color: '#000',
+        color: theme.textColor,
     },
 });
