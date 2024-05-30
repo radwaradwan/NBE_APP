@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import {StatusBar, StyleSheet, View,Text} from 'react-native';
-// import TopNav from '../Molecules/TopNav';
-import VisaRow from '../Molecules/VisaRow';
+// import VisaRow from '../Molecules/VisaRow';
 import SubmitButton from '../Atoms/SubmitButton';
 import ModalApp from '../Atoms/ModalApp';
 import { getTheme } from '../Storage/mmkv';
 import { theme } from '../theme/theme';
+import TestDraggable from '../Molecules/TestDraggable';
 type Props = {
 navigation:any,
 };
@@ -17,9 +17,9 @@ function AirPay(props:Props){
     return(
         <View style={styles.container}>
             <StatusBar translucent backgroundColor="transparent" barStyle={isDarkTheme ? 'light-content' : 'dark-content'}/>
-            {/* <TopNav/> */}
             <Text style={styles.text}>Cards</Text>
-            <VisaRow/>
+            {/* <VisaRow/> */}
+            <TestDraggable/>
             <View style={styles.dashedSquareContainer}>
                 <View style={styles.dashedSquare}>
                     <Text style={styles.dashedSquareText}>Touch & hold a card then drag it to this box</Text>
@@ -47,6 +47,7 @@ function AirPay(props:Props){
 
 const styles = StyleSheet.create({
 container:{
+    flex:1,
     padding:10,
     // backgroundColor:'#F1F3FB',
     backgroundColor:theme.BackgroundScreen,
