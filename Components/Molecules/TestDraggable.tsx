@@ -17,8 +17,8 @@ function TestDraggable() {
             containerPositionY.value = 0 + event.translationY;
         },
         onEnd: _ => {
-            containerPositionX.value = withSpring(0);
-            containerPositionY.value = withSpring(0);
+            containerPositionX.value = withSpring(22);
+            containerPositionY.value = withSpring(235);
         },
     });
     const animatedStyle = useAnimatedStyle(()=>({
